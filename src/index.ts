@@ -5,8 +5,14 @@ const rl = readline.createInterface({ input, output });
 
 async function main() {
   const linkedinUrl = await rl.question("Paste the LinkedIn job URL: ");
-
   const trimmedUrl = linkedinUrl.trim();
+  const isLinkedIn = !trimmedUrl.search("linkedin.com");
+
+  if (!isLinkedIn) {
+    console.error("The URL provided is not from a LinkedIn job listing.\n");
+    process.exitCode = 1;
+    return;
+  }
 
   if (!trimmedUrl) {
     console.error("No URL provided.");
