@@ -1,0 +1,27 @@
+{
+  "name": "job-agent",
+  "version": "1.0.0",
+  "description": "An OpenAI agent helps with job tracking and applications",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zero0Halo/job-agent.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/zero0Halo/job-agent/issues"
+  },
+  "homepage": "https://github.com/zero0Halo/job-agent#readme",
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  }
+}
