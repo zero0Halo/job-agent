@@ -1,5 +1,9 @@
+import { Agent, run } from "@openai/agents";
+import dotenv from "dotenv";
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
+
+dotenv.config();
 
 const rl = readline.createInterface({ input, output });
 
