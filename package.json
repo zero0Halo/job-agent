@@ -4,7 +4,7 @@
   "description": "An OpenAI agent helps with job tracking and applications",
   "main": "src/index.ts",
   "scripts": {
-    "start": "node --disable-warning=ExperimentalWarning .",
+    "dev": "tsx src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
