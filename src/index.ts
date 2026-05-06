@@ -2,11 +2,12 @@ import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 
 const rl = readline.createInterface({ input, output });
+const regexUrl = /linkedin.com/;
 
 async function main() {
   const linkedinUrl = await rl.question("Paste the LinkedIn job URL: ");
-  const trimmedUrl = linkedinUrl.trim();
-  const isLinkedIn = !trimmedUrl.search("linkedin.com");
+  const [trimmedUrl] = linkedinUrl.trim().split("?");
+  const isLinkedIn = trimmedUrl.search(regexUrl);
 
   if (!isLinkedIn) {
     console.error("The URL provided is not from a LinkedIn job listing.\n");
@@ -20,8 +21,17 @@ async function main() {
     return;
   }
 
-  console.log("\nLinkedIn URL received:");
-  console.log(trimmedUrl);
+  console.log(`\nLinkedIn URL received: ${trimmedUrl}\n`);
+
+  const jobDescription = await rl.question("Paste the job description:");
+
+  if (!jobDescription) {
+    console.error("No job description provided.");
+    process.exitCode = 1;
+    return;
+  }
+
+  console.log("Job description received!\n");
 }
 
 main()
