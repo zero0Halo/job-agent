@@ -6,6 +6,7 @@ import { extractJob } from "./ai/extractJob";
 dotenv.config();
 
 const rl = readline.createInterface({ input, output });
+const regexTitle = /<title>(.?)<\/title>/i;
 
 async function main() {
   const linkedinUrl = await rl.question("Paste the LinkedIn job URL: ");
@@ -25,6 +26,13 @@ async function main() {
   }
 
   console.log(`\nLinkedIn URL received: ${trimmedUrl}\n`);
+
+  const response = await fetch(trimmedUrl, {
+    headers: { "User-Agent": "Mozilla/5.0" },
+  });
+  const text = await response.text();
+  const match = text?.match(regexTitle);
+  console.log(match?.at(1));
 
   // Hardcoding for development
   // const jobDescription = await rl.question("Paste the job description:");
@@ -86,7 +94,7 @@ Compensation Range: $245K - $270K`;
 
   console.log("Job description received!\n");
 
-  const descriptionParse = extractJob(jobDescription);
+  const descriptionParse = await extractJob(jobDescription);
 }
 
 main()
