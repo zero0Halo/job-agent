@@ -16,14 +16,21 @@ Do not invent details.
 });
 
 export async function extractJob(
-  description: string,
+  jobDescription: string,
+  titleTagText?: string,
 ): Promise<DescriptionParse> {
   const result = await run(
     extractJobAgent,
     `
-Extract the company name and job title from this job description:
+Extract the company name from this job description: ${jobDescription}
 
-${description}
+Then extract the job name from this text: ${titleTagText}
+
+Return the results in the following JavaScript object format:
+{
+  companyName: "string",
+  jobTitle: "string"
+}
 `,
   );
 
