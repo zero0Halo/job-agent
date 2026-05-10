@@ -1,7 +1,7 @@
 import { Agent, run } from "@openai/agents";
 export type DescriptionParse = {
-  companyName: string;
-  jobTitle: string;
+  companyName?: string;
+  jobTitle?: string;
 };
 
 const extractJobAgent = new Agent({
@@ -16,7 +16,7 @@ Do not invent details.
 });
 
 export async function extractJob(
-  jobDescription: string,
+  jobDescription?: string,
   titleTagText?: string,
 ): Promise<DescriptionParse> {
   const result = await run(
@@ -26,18 +26,22 @@ Extract the company name from this job description: ${jobDescription}
 
 Then extract the job name from this text: ${titleTagText}
 
-Return the results in the following JavaScript object format:
+Return the results in the following JSON format:
 {
-  companyName: "string",
-  jobTitle: "string"
+  "companyName": "string",
+  "jobTitle": "string"
 }
 `,
   );
 
-  console.log(result.finalOutput);
+  const parsed = result?.finalOutput
+    ? JSON.parse(result.finalOutput)
+    : { companyName: "Unknown", jobTitle: "Unknown" };
+
+  console.log("Job title extracted!");
 
   return {
-    companyName: "TODO",
-    jobTitle: "TODO",
+    companyName: parsed.companyName,
+    jobTitle: parsed.jobTitle,
   };
 }

@@ -32,7 +32,6 @@ async function main() {
   });
   const text = await response.text();
   const titleTagText = text?.match(regexTitle)?.at(1);
-  console.log(text, titleTagText);
 
   // Hardcoding for development
   // const jobDescription = await rl.question("Paste the job description:");
@@ -95,6 +94,7 @@ Compensation Range: $245K - $270K`;
   console.log("Job description received!\n");
 
   const descriptionParse = await extractJob(jobDescription, titleTagText);
+  console.log(descriptionParse);
 }
 
 main()
