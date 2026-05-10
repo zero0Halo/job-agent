@@ -34,14 +34,20 @@ Return the results in the following JSON format:
 `,
   );
 
-  const parsed = result?.finalOutput
-    ? JSON.parse(result.finalOutput)
-    : { companyName: "Unknown", jobTitle: "Unknown" };
+  try {
+    const parsed = result?.finalOutput
+      ? JSON.parse(result.finalOutput)
+      : { companyName: "Unknown", jobTitle: "Unknown" };
 
-  console.log("Job title extracted!");
+    console.log("Job title extracted!");
 
-  return {
-    companyName: parsed.companyName,
-    jobTitle: parsed.jobTitle,
-  };
+    return {
+      companyName: parsed.companyName,
+      jobTitle: parsed.jobTitle,
+    };
+  } catch (error) {
+    console.error("Error parsing job information:", error);
+
+    return { companyName: "Unknown", jobTitle: "Unknown" };
+  }
 }
