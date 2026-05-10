@@ -4,7 +4,7 @@ export type DescriptionParse = {
   jobTitle?: string;
 };
 
-const extractJobAgent = new Agent({
+const agent = new Agent({
   name: "Job extraction agent",
   instructions: `
 You extract structured job information from pasted job descriptions.
@@ -15,12 +15,12 @@ Do not invent details.
 `,
 });
 
-export async function extractJob(
+export async function agentExtractJob(
   jobDescription?: string,
   titleTagText?: string,
 ): Promise<DescriptionParse> {
   const result = await run(
-    extractJobAgent,
+    agent,
     `
 Extract the company name from this job description: ${jobDescription}
 
@@ -37,7 +37,7 @@ Return the results in the following JSON format:
   try {
     const parsed = result?.finalOutput
       ? JSON.parse(result.finalOutput)
-      : { companyName: "Unknown", jobTitle: "Unknown" };
+      : { companyName: "", jobTitle: "" };
 
     console.log("Job title extracted!");
 
@@ -48,6 +48,6 @@ Return the results in the following JSON format:
   } catch (error) {
     console.error("Error parsing job information:", error);
 
-    return { companyName: "Unknown", jobTitle: "Unknown" };
+    return { companyName: "", jobTitle: "" };
   }
 }

@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
-import { extractJob } from "./ai/extractJob";
+import { agentExtractJob } from "./ai/agentExtractJob";
 
 dotenv.config();
 
@@ -93,7 +93,7 @@ Compensation Range: $245K - $270K`;
 
   console.log("Job description received!\n");
 
-  const descriptionParse = await extractJob(jobDescription, titleTagText);
+  const descriptionParse = await agentExtractJob(jobDescription, titleTagText);
   console.log(descriptionParse);
 }
 
