@@ -6,22 +6,12 @@ import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 import fs from "fs";
 import { agentExtractJob } from "./ai/agentExtractJob";
+import { loadPdf } from "./loadPdf";
 
 dotenv.config();
 
 const rl = readline.createInterface({ input, output });
 const regexTitle = /<title>(.*?)<\/title>/i;
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const developerResumePath = path.join(__dirname, "../resumes/developer.pdf");
-const developerResumeBuffer = fs.readFileSync(developerResumePath);
-const developerResumeParse = new PDFParse({
-  data: new Uint8Array(developerResumeBuffer),
-});
-const developerResume = await developerResumeParse.getText();
-
-console.log(developerResume);
 
 async function main() {
   const linkedinUrl = await rl.question("Paste the LinkedIn job URL: ");
@@ -113,30 +103,17 @@ Compensation Range: $245K - $270K`;
     titleTagText,
   );
 
-  const developerResumePath = path.join(
-    __dirname,
-    "data",
-    "../resumes/developer.pdf",
-  );
-  const developerResume = fs.readFileSync(developerResumePath, "utf-8");
-  const managerResumePath = path.join(
-    __dirname,
-    "data",
-    "../resumes/manager.pdf",
-  );
-  const managerResume = fs.readFileSync(managerResumePath, "utf-8");
-  const parsedDeveloperResume = await new PDFParse(developerResume);
-  const parsedManagerResume = await new PDFParse(managerResume);
+  const developerResume = await loadPdf("developer.pdf");
+  const managerResume = await loadPdf("manager.pdf");
 
-  console.log(parsedDeveloperResume);
-  console.log(parsedManagerResume);
+  console.log({ companyName, jobTitle, developerResume, managerResume });
 }
 
-// main()
-//   .catch((error) => {
-//     console.error("Something went wrong:", error);
-//     process.exitCode = 1;
-//   })
-//   .finally(() => {
-//     rl.close();
-//   });
+main()
+  .catch((error) => {
+    console.error("Something went wrong:", error);
+    process.exitCode = 1;
+  })
+  .finally(() => {
+    rl.close();
+  });
