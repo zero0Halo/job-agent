@@ -3,10 +3,8 @@ import { Agent, run } from "@openai/agents";
 const agent = new Agent({
   name: "Resume extraction agent",
   instructions: `
-You extract structured candidate information from this resume:
+You extract structured candidate information from the passed resume.
 
-Return only the company name and job title.
-If either value is unclear, use "Unknown".
 Do not invent details.
 `,
 });

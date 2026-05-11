@@ -105,9 +105,6 @@ Compensation Range: $245K - $270K`;
   );
 
   const developerResume = await loadPdf("developer.pdf");
-  // console.log(developerResume);
-  // return;
-
   const managerResume = await loadPdf("manager.pdf");
   const developerInfo = await agentExtractResume(developerResume);
   const managerInfo = await agentExtractResume(managerResume);
