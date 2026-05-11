@@ -39,7 +39,7 @@ Return the results in the following JSON format:
       ? JSON.parse(result.finalOutput)
       : { companyName: "", jobTitle: "" };
 
-    console.log("Job title extracted!");
+    console.log("Job title extracted!\n");
 
     return {
       companyName: parsed.companyName,

@@ -15,6 +15,8 @@ export async function agentExtractResume(resume?: string) {
     `
 Extract the following information from this resume: ${resume}
 
+Do not wrap the results in markdown.
+
 Return the results in the following JSON format:
 {
   "codingExperience": 0,

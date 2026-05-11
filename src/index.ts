@@ -8,7 +8,7 @@ import fs from "fs";
 import { agentExtractJob } from "./ai/agentExtractJob";
 import { loadPdf } from "./loadPdf";
 import { agentExtractResume } from "./ai/agentExtractResume";
-import { agentCompareJobToResume } from "./ai/agentCompareJobToResume";
+import { agentCompareJobToResumes } from "./ai/agentCompareJobToResumes";
 
 dotenv.config();
 
@@ -109,21 +109,20 @@ Compensation Range: $245K - $270K`;
   const managerResume = await loadPdf("manager.pdf");
   const developerInfo = await agentExtractResume(developerResume);
   const managerInfo = await agentExtractResume(managerResume);
-  const developerComparison = await agentCompareJobToResume({
+
+  const comparison = await agentCompareJobToResumes({
     jobDescription,
-    resumeInfo: developerInfo,
-  });
-  const managerComparison = await agentCompareJobToResume({
-    jobDescription,
-    resumeInfo: managerInfo,
+    developerInfo,
+    managerInfo,
   });
 
-  console.log("Extracted Job Information:");
-  console.log(`Position: ${jobTitle} | Company: ${companyName}\n`);
-  console.log("Developer Comparison:");
-  console.log(developerComparison);
-  console.log("\nManager Comparison:");
-  console.log(managerComparison);
+  console.log("Extracted Job Information:\n");
+
+  console.log(`Position: ${jobTitle} | Company: ${companyName}`);
+  console.log(`URL: ${trimmedUrl}\n`);
+
+  console.log("Comparison:");
+  console.log(comparison);
 }
 
 main()
