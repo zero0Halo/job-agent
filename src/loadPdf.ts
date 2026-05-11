@@ -13,5 +13,5 @@ export async function loadPdf(pdfFilename: string) {
   });
   const resume = await resumeParse.getText();
 
-  return resume;
+  return resume.text;
 }
