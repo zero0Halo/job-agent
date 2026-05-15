@@ -5,6 +5,7 @@ import { agentExtractJob } from "./ai/agentExtractJob";
 import { agentExtractResume } from "./ai/agentExtractResume";
 import { agentCompareJobToResumes } from "./ai/agentCompareJobToResumes";
 import { loadPdf } from "./loadPdf";
+import { outputMarkdown } from "./outputMarkdown";
 
 // Loads environment variables from .env file
 dotenv.config();
@@ -118,7 +119,13 @@ Compensation Range: $245K - $270K`;
   console.log(`Position: ${jobTitle} | Company: ${companyName}`);
   console.log(`URL: ${trimmedUrl}\n`);
   console.log(comparison);
-  // outputMarkdown(comparison.summary);
+  const md = outputMarkdown({
+    jobTitle,
+    companyName,
+    url: trimmedUrl,
+    comparison,
+  });
+  console.log(md);
 }
 
 main()

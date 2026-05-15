@@ -1,10 +1,15 @@
 import { Agent, run } from "@openai/agents";
+import {
+  AgentExtractResumeSchema,
+  AgentExtractResume,
+} from "./agentExtractResume";
 
 const attempts = 3;
 let count = 0;
 
 const agent = new Agent({
   name: "Job to resume comparison agent",
+  outputType: AgentExtractResumeSchema,
   instructions: `
 You compare the requirements of the passed job description to the candidate information extracted from the resume.
 
@@ -24,7 +29,7 @@ export async function agentCompareJobToResumes({
   jobDescription: string;
   developerInfo: any;
   managerInfo: any;
-}) {
+}): Promise<AgentExtractResume> {
   const result = await run(
     agent,
     `
@@ -41,52 +46,28 @@ Manager Resume Information: ${JSON.stringify(managerInfo)}
 Developer Resume Information: ${JSON.stringify(developerInfo)}
 
 Do not wrap the results in markdown.
-Return the results in the following JSON format:
-
-{
-  "score": 0,
-  "summary": "",
-  "strongMatches": [
-    {
-      "jobRequirement": "",
-      "candidateEvidence": "",
-      "confidence": "high"
-    }
-  ],
-  "weakMatches": [
-    {
-      "jobRequirement": "",
-      "candidateGap": "",
-      "impact": "low"
-    }
-  ],
-  "missingRequirements": [],
-  "recommendedResume": "developer | manager | unknown"
-}
 `,
   );
 
   try {
-    const parsed = result?.finalOutput
-      ? JSON.parse(result.finalOutput)
-      : {
-          score: 0,
-          summary: "",
-          strongMatches: [],
-          weakMatches: [],
-          missingRequirements: [],
-          recommendedResume: "developer | manager | unknown",
-        };
+    const parsed = result?.finalOutput ?? {
+      missingRequirements: [],
+      recommendedResume: "developer | manager | unknown",
+      score: 0,
+      strongMatches: [],
+      summary: "",
+      weakMatches: [],
+    };
 
     console.log("\nComparison Complete!\n");
 
     return {
+      recommendedResume: parsed.recommendedResume,
       score: parsed.score,
-      summary: parsed.summary,
+      missingRequirements: parsed.missingRequirements,
       strongMatches: parsed.strongMatches,
       weakMatches: parsed.weakMatches,
-      missingRequirements: parsed.missingRequirements,
-      recommendedResume: parsed.recommendedResume,
+      summary: parsed.summary,
     };
   } catch (error) {
     if (count < attempts) {
@@ -105,12 +86,12 @@ Return the results in the following JSON format:
     console.error("Error parsing resume information: ", error);
 
     return {
-      score: 0,
-      summary: "",
-      strongMatches: [],
-      weakMatches: [],
       missingRequirements: [],
       recommendedResume: "",
+      score: 0,
+      strongMatches: [],
+      summary: "",
+      weakMatches: [],
     };
   }
 }

@@ -1,21 +1,41 @@
-function outputMarkdown(text: string) {
+import { Match } from "./ai/agentExtractResume";
+
+export function outputMarkdown({
+  jobTitle,
+  companyName,
+  url,
+  comparison,
+}: {
+  jobTitle?: string;
+  companyName?: string;
+  url: string;
+  comparison: any;
+}) {
   return `
-# jobTitle | companyName
-[*date*] *url*
+# ${jobTitle} | ${companyName}
+URL: ${url}
 
-## Recommended: recommendedResume (score)
+## Recommended: ${comparison.recommendedResume} (score: ${comparison.score})
 
-summary
+${comparison.summary}
 
 ---
 
 ### Strong Matches
-* **jobRequirement**: candidateEvidence
+${comparison.strongMatches.map(
+  (match: Match) => `* **${match.jobRequirement}**: ${match.candidateEvidence}`,
+)}
+
+
 
 ### Weak Matches
-* **jobRequirement**: candidateEvidence
+${comparison.weakMatches.map(
+  (match: Match) => `* **${match.jobRequirement}**: ${match.candidateEvidence}`,
+)}
 
 ### Missing Requirements
-* **jobRequirement**: candidateEvidence
+${comparison.missingRequirement.map(
+  (match: Match) => `* **${match.jobRequirement}**: ${match.candidateEvidence}`,
+)}
   `;
 }
