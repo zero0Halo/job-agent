@@ -21,6 +21,7 @@ export type AgentExtractResume = z.infer<typeof AgentExtractResumeSchema>;
 
 const agent = new Agent({
   name: "Resume extraction agent",
+  outputType: AgentExtractResumeSchema,
   instructions: `
 You extract structured candidate information from the passed resume.
 
@@ -51,16 +52,17 @@ Return the results in the following JSON format:
   );
 
   try {
-    const parsed = result?.finalOutput
-      ? JSON.parse(result.finalOutput)
-      : {
-          recommendedResume: "",
-          score: 0,
-          missingRequirements: [],
-          strongMatches: [],
-          weakMatches: [],
-          summary: "",
-        };
+    const parsed =
+      typeof result?.finalOutput === "string"
+        ? JSON.parse(result.finalOutput)
+        : (result?.finalOutput ?? {
+            recommendedResume: "",
+            score: 0,
+            missingRequirements: [],
+            strongMatches: [],
+            weakMatches: [],
+            summary: "",
+          });
 
     console.log("Resume information extracted!");
 
