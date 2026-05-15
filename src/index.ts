@@ -115,6 +115,12 @@ Compensation Range: $245K - $270K`;
     developerInfo,
     managerInfo,
   });
+  const now = new Date();
+  const formattedDate = [
+    String(now.getMonth() + 1).padStart(2, "0"),
+    String(now.getDate()).padStart(2, "0"),
+    now.getFullYear(),
+  ].join("-");
 
   console.log("Extracted Job Information:\n");
 
@@ -122,6 +128,7 @@ Compensation Range: $245K - $270K`;
   console.log(`URL: ${trimmedUrl}\n`);
   console.log(comparison);
   const md = outputMarkdown({
+    formattedDate,
     jobTitle,
     companyName,
     url: trimmedUrl,
@@ -131,7 +138,10 @@ Compensation Range: $245K - $270K`;
   if (!fs.existsSync("output")) {
     await mkdir("output", { recursive: true });
   }
-  await writeFile(`output/${companyName}-${jobTitle}.md`, md);
+  await writeFile(
+    `output/${formattedDate}--${companyName.toLowerCase().replace(/\s+/g, "-")}--${jobTitle.toLowerCase().replace(/\s+/g, "-")}.md`,
+    md,
+  );
 }
 
 main()

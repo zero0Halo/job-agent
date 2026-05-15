@@ -3,6 +3,7 @@ import { Match } from "./ai/agentExtractResume";
 import { AgentExtractResumeSchema } from "./ai/agentExtractResume";
 
 const OutputMarkdownSchema = z.object({
+  formattedDate: z.string(),
   jobTitle: z.string(),
   companyName: z.string(),
   url: z.string(),
@@ -12,6 +13,7 @@ const OutputMarkdownSchema = z.object({
 type OutputMarkdown = z.infer<typeof OutputMarkdownSchema>;
 
 export function outputMarkdown({
+  formattedDate,
   jobTitle,
   companyName,
   url,
@@ -20,6 +22,7 @@ export function outputMarkdown({
   return `
 # ${jobTitle} | ${companyName}
 **URL**: ${url}
+**Date**: ${formattedDate}
 
 ## Recommended: ${comparison.recommendedResume} (score: ${comparison.score})
 
