@@ -1,16 +1,22 @@
+import z from "zod";
 import { Match } from "./ai/agentExtractResume";
+import { AgentExtractResumeSchema } from "./ai/agentExtractResume";
+
+const OutputMarkdownSchema = z.object({
+  jobTitle: z.string(),
+  companyName: z.string(),
+  url: z.string(),
+  comparison: AgentExtractResumeSchema,
+});
+
+type OutputMarkdown = z.infer<typeof OutputMarkdownSchema>;
 
 export function outputMarkdown({
   jobTitle,
   companyName,
   url,
   comparison,
-}: {
-  jobTitle?: string;
-  companyName?: string;
-  url: string;
-  comparison: any;
-}) {
+}: OutputMarkdown) {
   return `
 # ${jobTitle} | ${companyName}
 URL: ${url}
@@ -34,7 +40,7 @@ ${comparison.weakMatches.map(
 )}
 
 ### Missing Requirements
-${comparison.missingRequirement.map(
+${comparison.missingRequirements.map(
   (match: Match) => `* **${match.jobRequirement}**: ${match.candidateEvidence}`,
 )}
   `;
