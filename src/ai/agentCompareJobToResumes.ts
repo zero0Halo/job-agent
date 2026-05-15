@@ -1,5 +1,8 @@
 import { Agent, run } from "@openai/agents";
 
+const attempts = 3;
+let count = 0;
+
 const agent = new Agent({
   name: "Job to resume comparison agent",
   instructions: `
@@ -86,7 +89,20 @@ Return the results in the following JSON format:
       recommendedResume: parsed.recommendedResume,
     };
   } catch (error) {
-    console.error("Error parsing resume information:", error);
+    if (count < attempts) {
+      console.error(
+        `Error parsing resume information. Trying again (${count + 1})`,
+      );
+      count++;
+
+      return await agentCompareJobToResumes({
+        jobDescription,
+        developerInfo,
+        managerInfo,
+      });
+    }
+
+    console.error("Error parsing resume information: ", error);
 
     return {
       score: 0,
