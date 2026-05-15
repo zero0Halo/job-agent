@@ -1,15 +1,12 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import dotenv from "dotenv";
-import { PDFParse } from "pdf-parse";
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
-import fs from "fs";
 import { agentExtractJob } from "./ai/agentExtractJob";
-import { loadPdf } from "./loadPdf";
 import { agentExtractResume } from "./ai/agentExtractResume";
 import { agentCompareJobToResumes } from "./ai/agentCompareJobToResumes";
+import { loadPdf } from "./loadPdf";
 
+// Loads environment variables from .env file
 dotenv.config();
 
 const rl = readline.createInterface({ input, output });
@@ -120,9 +117,8 @@ Compensation Range: $245K - $270K`;
 
   console.log(`Position: ${jobTitle} | Company: ${companyName}`);
   console.log(`URL: ${trimmedUrl}\n`);
-
-  console.log("Comparison:");
   console.log(comparison);
+  // outputMarkdown(comparison.summary);
 }
 
 main()

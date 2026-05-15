@@ -1,15 +1,36 @@
 import { Agent, run } from "@openai/agents";
+import { z } from "zod";
+
+export const MatchSchema = z.object({
+  jobRequirement: z.string(),
+  candidateEvidence: z.string(),
+  confidence: z.enum(["high", "medium", "low"]),
+});
+
+export const AgentExtractResumeSchema = z.object({
+  recommendedResume: z.string(),
+  score: z.number(),
+  missingRequirements: z.array(MatchSchema),
+  strongMatches: z.array(MatchSchema),
+  weakMatches: z.array(MatchSchema),
+  summary: z.string(),
+});
+
+export type Match = z.infer<typeof MatchSchema>;
+export type AgentExtractResume = z.infer<typeof AgentExtractResumeSchema>;
 
 const agent = new Agent({
   name: "Resume extraction agent",
   instructions: `
 You extract structured candidate information from the passed resume.
 
-Do not invent details.
+Do not invent details or fields.
 `,
 });
 
-export async function agentExtractResume(resume?: string) {
+export async function agentExtractResume(
+  resume?: string,
+): Promise<AgentExtractResume> {
   const result = await run(
     agent,
     `
@@ -19,12 +40,12 @@ Do not wrap the results in markdown.
 
 Return the results in the following JSON format:
 {
-  "codingExperience": 0,
-  "managementExperience": 0,
-  "frontendTechnologies": [],
-  "backendTechnologies": [],
-  "domains": [],
-  "strengths": []
+  recommendedResume: string,
+  score: number,
+  missingRequirements: Match[],
+  strongMatches: Match[],
+  weakMatches: Match[],
+  summary: string
 }
 `,
   );
@@ -33,34 +54,34 @@ Return the results in the following JSON format:
     const parsed = result?.finalOutput
       ? JSON.parse(result.finalOutput)
       : {
-          codingExperience: 0,
-          managementExperience: 0,
-          frontendTechnologies: [],
-          backendTechnologies: [],
-          domains: [],
-          strengths: [],
+          recommendedResume: "",
+          score: 0,
+          missingRequirements: [],
+          strongMatches: [],
+          weakMatches: [],
+          summary: "",
         };
 
     console.log("Resume information extracted!");
 
     return {
-      codingExperience: parsed.codingExperience,
-      managementExperience: parsed.managementExperience,
-      frontendTechnologies: parsed.frontendTechnologies,
-      backendTechnologies: parsed.backendTechnologies,
-      domains: parsed.domains,
-      strengths: parsed.strengths,
+      recommendedResume: parsed.recommendedResume,
+      score: parsed.score,
+      missingRequirements: parsed.missingRequirements,
+      strongMatches: parsed.strongMatches,
+      weakMatches: parsed.weakMatches,
+      summary: parsed.summary,
     };
   } catch (error) {
     console.error("Error parsing resume information:", error);
 
     return {
-      codingExperience: 0,
-      managementExperience: 0,
-      frontendTechnologies: [],
-      backendTechnologies: [],
-      domains: [],
-      strengths: [],
+      recommendedResume: "",
+      score: 0,
+      missingRequirements: [],
+      strongMatches: [],
+      weakMatches: [],
+      summary: "",
     };
   }
 }
