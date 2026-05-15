@@ -38,31 +38,18 @@ export async function agentExtractResume(
 Extract the following information from this resume: ${resume}
 
 Do not wrap the results in markdown.
-
-Return the results in the following JSON format:
-{
-  recommendedResume: string,
-  score: number,
-  missingRequirements: Match[],
-  strongMatches: Match[],
-  weakMatches: Match[],
-  summary: string
-}
 `,
   );
 
   try {
-    const parsed =
-      typeof result?.finalOutput === "string"
-        ? JSON.parse(result.finalOutput)
-        : (result?.finalOutput ?? {
-            recommendedResume: "",
-            score: 0,
-            missingRequirements: [],
-            strongMatches: [],
-            weakMatches: [],
-            summary: "",
-          });
+    const parsed = result?.finalOutput ?? {
+      recommendedResume: "",
+      score: 0,
+      missingRequirements: [],
+      strongMatches: [],
+      weakMatches: [],
+      summary: "",
+    };
 
     console.log("Resume information extracted!");
 
