@@ -1,5 +1,7 @@
 import dotenv from "dotenv";
 import readline from "node:readline/promises";
+import fs from "node:fs";
+import { mkdir, writeFile } from "node:fs/promises";
 import { stdin as input, stdout as output } from "node:process";
 import { agentExtractJob } from "./ai/agentExtractJob";
 import { agentExtractResume } from "./ai/agentExtractResume";
@@ -125,7 +127,11 @@ Compensation Range: $245K - $270K`;
     url: trimmedUrl,
     comparison,
   });
-  console.log(md);
+
+  if (!fs.existsSync("output")) {
+    await mkdir("output", { recursive: true });
+  }
+  await writeFile(`output/${companyName}-${jobTitle}.md`, md);
 }
 
 main()
