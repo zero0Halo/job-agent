@@ -1,11 +1,16 @@
 import { Agent, run } from "@openai/agents";
-export type DescriptionParse = {
-  companyName?: string;
-  jobTitle?: string;
-};
+import { z } from "zod";
+
+export const AgentExtractJobSchema = z.object({
+  companyName: z.string(),
+  jobTitle: z.string(),
+});
+
+export type AgentExtractJob = z.infer<typeof AgentExtractJobSchema>;
 
 const agent = new Agent({
   name: "Job extraction agent",
+  outputType: AgentExtractJobSchema,
   instructions: `
 You extract structured job information from pasted job descriptions.
 
@@ -18,25 +23,19 @@ Do not invent details.
 export async function agentExtractJob(
   jobDescription?: string,
   titleTagText?: string,
-): Promise<DescriptionParse> {
+): Promise<AgentExtractJob> {
   const result = await run(
     agent,
     `
 Extract the company name from this job description: ${jobDescription}
 
 Then extract the job name from this text: ${titleTagText}
-
-Return the results in the following JSON format:
-{
-  "companyName": "string",
-  "jobTitle": "string"
-}
 `,
   );
 
   try {
     const parsed = result?.finalOutput
-      ? JSON.parse(result.finalOutput)
+      ? (result.finalOutput as AgentExtractJob)
       : { companyName: "", jobTitle: "" };
 
     console.log("Job title extracted!\n");
