@@ -8,6 +8,7 @@ import { agentExtractResume } from "./ai/agentExtractResume";
 import { agentCompareJobToResumes } from "./ai/agentCompareJobToResumes";
 import { loadPdf } from "./loadPdf";
 import { outputMarkdown } from "./outputMarkdown";
+import { nameToFilename } from "./nameToFilename";
 
 // Loads environment variables from .env file
 dotenv.config();
@@ -124,9 +125,10 @@ Compensation Range: $245K - $270K`;
 
   console.log("Extracted Job Information:\n");
 
-  console.log(`Position: ${jobTitle} | Company: ${companyName}`);
-  console.log(`URL: ${trimmedUrl}\n`);
-  console.log(comparison);
+  // console.log(`Position: ${jobTitle} | Company: ${companyName}`);
+  // console.log(`URL: ${trimmedUrl}\n`);
+  // console.log(comparison);
+
   const md = outputMarkdown({
     formattedDate,
     jobTitle,
@@ -139,7 +141,7 @@ Compensation Range: $245K - $270K`;
     await mkdir("output", { recursive: true });
   }
   await writeFile(
-    `output/${formattedDate}--${companyName.toLowerCase().replace(/\s+/g, "-")}--${jobTitle.toLowerCase().replace(/\s+/g, "-")}.md`,
+    `output/${formattedDate}--${nameToFilename(companyName)}--${nameToFilename(jobTitle)}.md`,
     md,
   );
 }
