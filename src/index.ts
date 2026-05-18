@@ -6,9 +6,9 @@ import { stdin as input, stdout as output } from "node:process";
 import { agentExtractJob } from "./ai/agentExtractJob";
 import { agentExtractResume } from "./ai/agentExtractResume";
 import { agentCompareJobToResumes } from "./ai/agentCompareJobToResumes";
-import { loadPdf } from "./loadPdf";
 import { outputMarkdown } from "./outputMarkdown";
 import { nameToFilename } from "./nameToFilename";
+import { loadPdf } from "./loadPdf";
 
 // Loads environment variables from .env file
 dotenv.config();
@@ -106,8 +106,10 @@ Compensation Range: $245K - $270K`;
     titleTagText,
   );
 
-  const developerResume = await loadPdf("developer.pdf");
-  const managerResume = await loadPdf("manager.pdf");
+  const developerResume = await loadPdf("developer");
+  console.log(developerResume, "\n");
+  const managerResume = await loadPdf("manager");
+  console.log(managerResume, "\n");
   const developerInfo = await agentExtractResume(developerResume);
   const managerInfo = await agentExtractResume(managerResume);
 
