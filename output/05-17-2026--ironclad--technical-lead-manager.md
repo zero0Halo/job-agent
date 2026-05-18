@@ -3,9 +3,9 @@
 **URL**: https://www.linkedin.com/jobs/view/4409114346/
 **Date**: 05-17-2026
 
-## Recommended:  (score: 0)
+## Recommended: Neither resume can be meaningfully evaluated because the resume information for both candidates was not provided in a readable format. Both resumes returned placeholders (‘[object Object]’) instead of extracted skills or experience. (score: 0)
 
-Neither the Manager nor the Developer resume provided any content to evaluate against the Ironclad job description. Therefore, I cannot compare the two nor recommend one for the role. Please provide actual resume information for both candidates to proceed with an evaluation and make a recommendation.
+Neither candidate’s resume can be evaluated against the Ironclad job description because both resume inputs are empty or in an unreadable format. Please provide the actual resume content (in text or image format) for both candidates. Without this information, it is impossible to compare their fit for the role.
 
 ---
 
@@ -16,5 +16,5 @@ Neither the Manager nor the Developer resume provided any content to evaluate ag
 
 
 ### Missing Requirements
-* **Resume information for both candidates**: No resume data was provided for the Manager or Developer.
+* **Candidate must provide a full, readable resume with details about their skills, experience, and qualifications.**: No usable resume text was extracted from either candidate.
   

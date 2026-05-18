@@ -5,12 +5,13 @@ import fs from "fs";
 import { PDFParse } from "pdf-parse";
 
 export async function loadPdf(pdfFilename: "developer" | "manager") {
-  await mkdir(".cache", { recursive: true });
+  // Create the cached resumes directory if it doesn't exist
+  await mkdir("../.cache", { recursive: true });
 
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
   const pdfPath = path.join(__dirname, `../resumes/${pdfFilename}.pdf`);
-  const cachePath = path.join(__dirname, `./.cache/${pdfFilename}.json`);
+  const cachePath = path.join(__dirname, `../.cache/${pdfFilename}.json`);
   const pdfStat = await stat(pdfPath);
 
   try {
@@ -58,10 +59,6 @@ export async function loadPdf(pdfFilename: "developer" | "manager") {
       data: new Uint8Array(pdfBuffer),
     });
     const resume = await pdfParse.getText();
-
-    if (!fs.existsSync("./.cache")) {
-      await mkdir("./.cache", { recursive: true });
-    }
 
     await writeFile(
       cachePath,
