@@ -22,14 +22,14 @@ Do not invent details.
 
 export async function agentExtractJob(
   jobDescription?: string,
-  titleTagText?: string,
+  jobTitle?: string,
 ): Promise<AgentExtractJob> {
   const result = await run(
     agent,
     `
 Extract the company name from this job description: ${jobDescription}
 
-Then extract the job name from this text: ${titleTagText}
+Then extract the job name from this text: ${jobTitle}
 `,
   );
 

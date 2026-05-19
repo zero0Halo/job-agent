@@ -22,6 +22,7 @@ export function outputMarkdown({
   return `
 # ${jobTitle} | ${companyName}
 **URL**: ${url}
+
 **Date**: ${formattedDate}
 
 ## Recommended: ${comparison.recommendedResume} (score: ${comparison.score})
