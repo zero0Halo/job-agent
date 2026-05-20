@@ -19,6 +19,17 @@ export const AgentExtractResumeSchema = z.object({
 export type Match = z.infer<typeof MatchSchema>;
 export type AgentExtractResume = z.infer<typeof AgentExtractResumeSchema>;
 
+function createAgentExtractResumeSchema() {
+  return {
+    recommendedResume: "",
+    score: 0,
+    missingRequirements: [],
+    strongMatches: [],
+    weakMatches: [],
+    summary: "",
+  };
+}
+
 const agent = new Agent({
   name: "Resume extraction agent",
   outputType: AgentExtractResumeSchema,
@@ -42,16 +53,9 @@ Do not wrap the results in markdown.
   );
 
   try {
-    const parsed = result?.finalOutput ?? {
-      recommendedResume: "",
-      score: 0,
-      missingRequirements: [],
-      strongMatches: [],
-      weakMatches: [],
-      summary: "",
-    };
+    const parsed = result?.finalOutput ?? createAgentExtractResumeSchema();
 
-    console.log("Resume information extracted!");
+    console.log("Resume information extracted!\n");
 
     return {
       recommendedResume: parsed.recommendedResume,
@@ -64,13 +68,6 @@ Do not wrap the results in markdown.
   } catch (error) {
     console.error("Error parsing resume information:", error);
 
-    return {
-      recommendedResume: "",
-      score: 0,
-      missingRequirements: [],
-      strongMatches: [],
-      weakMatches: [],
-      summary: "",
-    };
+    return createAgentExtractResumeSchema();
   }
 }

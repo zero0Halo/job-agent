@@ -59,8 +59,6 @@ async function main() {
     now.getFullYear(),
   ].join("-");
 
-  console.log("Extracted Job Information:\n");
-
   const md = outputMarkdown({
     formattedDate,
     jobTitle: jobTitle,
@@ -76,6 +74,8 @@ async function main() {
     `output/${formattedDate}--${nameToFilename(companyName)}--${nameToFilename(jobTitle)}.md`,
     md,
   );
+
+  console.log("Markdown output generated in the output/ directory!");
 }
 
 main()
