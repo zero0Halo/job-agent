@@ -1,16 +1,16 @@
 import { Agent, run } from "@openai/agents";
 import { z } from "zod";
 
-export const AgentExtractJobSchema = z.object({
+export const AgentExtractJobDataSchema = z.object({
   companyName: z.string(),
   jobTitle: z.string(),
 });
 
-export type AgentExtractJob = z.infer<typeof AgentExtractJobSchema>;
+export type AgentExtractJobData = z.infer<typeof AgentExtractJobDataSchema>;
 
 const agent = new Agent({
   name: "Job extraction agent",
-  outputType: AgentExtractJobSchema,
+  outputType: AgentExtractJobDataSchema,
   instructions: `
 You extract the companyName and jobTitle from a job description and page title.
 
@@ -20,10 +20,10 @@ Do not invent details.
 `,
 });
 
-export async function agentExtractJob(
+export async function agentExtractJobData(
   jobDescription?: string,
   pageTitle?: string,
-): Promise<AgentExtractJob> {
+): Promise<AgentExtractJobData> {
   const result = await run(
     agent,
     `
@@ -39,7 +39,7 @@ Then extract the job title from the pageTitle.
 
   try {
     const parsed = result?.finalOutput
-      ? (result.finalOutput as AgentExtractJob)
+      ? (result.finalOutput as AgentExtractJobData)
       : { companyName: "", jobTitle: "" };
 
     console.log("Job title and Company name extracted!\n");

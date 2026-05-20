@@ -4,7 +4,7 @@ import fs from "node:fs";
 import { z } from "zod";
 import { mkdir, writeFile } from "node:fs/promises";
 import { stdin as input, stdout as output } from "node:process";
-import { agentExtractJob } from "./ai/agentExtractJob";
+import { agentExtractJobData } from "./ai/agentExtractJobData";
 import { agentExtractResume } from "./ai/agentExtractResume";
 import { agentCompareJobToResumes } from "./ai/agentCompareJobToResumes";
 import { outputMarkdown } from "./outputMarkdown";
@@ -37,7 +37,7 @@ async function main() {
     return;
   }
 
-  const { companyName, jobTitle } = await agentExtractJob(
+  const { companyName, jobTitle } = await agentExtractJobData(
     payloadParsed.jobDescription,
     payloadParsed.pageTitle,
   );
@@ -46,12 +46,14 @@ async function main() {
   const managerResume = await loadPdf("manager");
   const developerInfo = await agentExtractResume(developerResume);
   const managerInfo = await agentExtractResume(managerResume);
-
+  console.log(developerResume, "\n");
+  console.log(managerResume, "\n");
   const comparison = await agentCompareJobToResumes({
     jobDescription: payloadParsed.jobDescription,
     developerInfo,
     managerInfo,
   });
+
   const now = new Date();
   const formattedDate = [
     String(now.getMonth() + 1).padStart(2, "0"),
