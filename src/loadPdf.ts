@@ -19,7 +19,7 @@ export async function loadPdf(pdfFilename: "developer" | "manager") {
 
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
-  const pdfPath = path.join(__dirname, `../resumes/${pdfFilename}.pdf`);
+  const pdfPath = path.join(__dirname, `../system/resumes/${pdfFilename}.pdf`);
   const cachePath = path.join(__dirname, `../.cache/${pdfFilename}.json`);
   const pdfStat = await stat(pdfPath);
   const cached = await getCache(cachePath);

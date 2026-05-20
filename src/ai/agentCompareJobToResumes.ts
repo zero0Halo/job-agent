@@ -2,6 +2,7 @@ import { Agent, run } from "@openai/agents";
 import {
   AgentExtractResumeSchema,
   AgentExtractResume,
+  createAgentExtractResumeSchema,
 } from "./agentExtractResume";
 
 const attempts = 3;
@@ -50,16 +51,9 @@ Do not wrap the results in markdown.
   );
 
   try {
-    const parsed = result?.finalOutput ?? {
-      missingRequirements: [],
-      recommendedResume: "developer | manager | unknown",
-      score: 0,
-      strongMatches: [],
-      summary: "",
-      weakMatches: [],
-    };
+    const parsed = result?.finalOutput ?? createAgentExtractResumeSchema();
 
-    console.log("\nComparison Complete!\n");
+    console.log("Comparison Complete!\n");
 
     return {
       missingRequirements: parsed.missingRequirements,
@@ -85,13 +79,6 @@ Do not wrap the results in markdown.
 
     console.error("Error parsing resume information: ", error);
 
-    return {
-      missingRequirements: [],
-      recommendedResume: "",
-      score: 0,
-      strongMatches: [],
-      summary: "",
-      weakMatches: [],
-    };
+    return createAgentExtractResumeSchema();
   }
 }

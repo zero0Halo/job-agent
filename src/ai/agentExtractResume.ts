@@ -8,7 +8,7 @@ export const MatchSchema = z.object({
 });
 
 export const AgentExtractResumeSchema = z.object({
-  recommendedResume: z.string(),
+  recommendedResume: z.enum(["developer", "manager", "unknown"]),
   score: z.number(),
   missingRequirements: z.array(MatchSchema),
   strongMatches: z.array(MatchSchema),
@@ -19,9 +19,9 @@ export const AgentExtractResumeSchema = z.object({
 export type Match = z.infer<typeof MatchSchema>;
 export type AgentExtractResume = z.infer<typeof AgentExtractResumeSchema>;
 
-function createAgentExtractResumeSchema() {
+export function createAgentExtractResumeSchema(): AgentExtractResume {
   return {
-    recommendedResume: "",
+    recommendedResume: "unknown",
     score: 0,
     missingRequirements: [],
     strongMatches: [],
@@ -58,7 +58,10 @@ Do not wrap the results in markdown.
     console.log("Resume information extracted!\n");
 
     return {
-      recommendedResume: parsed.recommendedResume,
+      recommendedResume: parsed.recommendedResume as
+        | "developer"
+        | "manager"
+        | "unknown",
       score: parsed.score,
       missingRequirements: parsed.missingRequirements,
       strongMatches: parsed.strongMatches,

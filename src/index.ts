@@ -10,6 +10,7 @@ import { agentCompareJobToResumes } from "./ai/agentCompareJobToResumes";
 import { outputMarkdown } from "./outputMarkdown";
 import { nameToFilename } from "./nameToFilename";
 import { loadPdf } from "./loadPdf";
+import { agentWriteCoverletter } from "./ai/agentWriteCoverletter";
 
 // Loads environment variables from .env file
 dotenv.config();
@@ -51,6 +52,8 @@ async function main() {
     developerInfo,
     managerInfo,
   });
+  console.log(comparison);
+  // const coverLetter = await agentWriteCoverletter();
 
   const now = new Date();
   const formattedDate = [
