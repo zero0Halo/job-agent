@@ -12,7 +12,7 @@ const agent = new Agent({
   name: "Job extraction agent",
   outputType: AgentExtractJobSchema,
   instructions: `
-You extract structured job information from pasted job descriptions.
+You extract the companyName and jobTitle from a job description and page title.
 
 Return only the company name and job title.
 If either value is unclear, use "Unknown".
@@ -22,14 +22,18 @@ Do not invent details.
 
 export async function agentExtractJob(
   jobDescription?: string,
-  jobTitle?: string,
+  pageTitle?: string,
 ): Promise<AgentExtractJob> {
   const result = await run(
     agent,
     `
-Extract the company name from this job description: ${jobDescription}
+jobDescription: ${jobDescription}
 
-Then extract the job name from this text: ${jobTitle}
+pageTitle: ${pageTitle}
+
+Extract the company name from either the job description and/or the page title.
+
+Then extract the job title from the pageTitle.
 `,
   );
 
@@ -38,7 +42,7 @@ Then extract the job name from this text: ${jobTitle}
       ? (result.finalOutput as AgentExtractJob)
       : { companyName: "", jobTitle: "" };
 
-    console.log("Job title extracted!\n");
+    console.log("Job title and Company name extracted!\n");
 
     return {
       companyName: parsed.companyName,

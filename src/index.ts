@@ -15,10 +15,9 @@ import { loadPdf } from "./loadPdf";
 dotenv.config();
 
 const rl = readline.createInterface({ input, output });
-const regexTitle = /<title>(.*?)<\/title>/i;
 
 const PayloadSchema = z.object({
-  jobTitle: z.string(),
+  pageTitle: z.string(),
   jobDescription: z.string(),
   jobUrl: z.string(),
 });
@@ -40,7 +39,7 @@ async function main() {
 
   const { companyName, jobTitle } = await agentExtractJob(
     payloadParsed.jobDescription,
-    payloadParsed.jobTitle,
+    payloadParsed.pageTitle,
   );
 
   const developerResume = await loadPdf("developer");
@@ -64,7 +63,7 @@ async function main() {
 
   const md = outputMarkdown({
     formattedDate,
-    jobTitle: payloadParsed.jobTitle,
+    jobTitle: jobTitle,
     companyName: companyName,
     url: payloadParsed.jobUrl,
     comparison,
