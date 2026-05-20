@@ -46,8 +46,6 @@ async function main() {
   const managerResume = await loadPdf("manager");
   const developerInfo = await agentExtractResume(developerResume);
   const managerInfo = await agentExtractResume(managerResume);
-  console.log(developerResume, "\n");
-  console.log(managerResume, "\n");
   const comparison = await agentCompareJobToResumes({
     jobDescription: payloadParsed.jobDescription,
     developerInfo,

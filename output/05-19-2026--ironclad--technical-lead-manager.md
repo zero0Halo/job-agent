@@ -4,9 +4,9 @@
 
 **Date**: 05-19-2026
 
-## Recommended:  (score: 0)
+## Recommended: Neither resume is stronger, as both are missing. No comparison can be made. (score: 0)
 
-No evaluation can be made because neither the Manager nor the Developer resume information was provided in a readable format. Please provide the full content of both resumes to enable an accurate comparison and recommendation.
+Neither the Manager nor the Developer resume content was provided, so it's not possible to compare the candidates against the job description for Ironclad. Please upload or paste the actual resume data for meaningful analysis and comparison.
 
 ---
 
@@ -17,5 +17,5 @@ No evaluation can be made because neither the Manager nor the Developer resume i
 
 
 ### Missing Requirements
-
+* **Entirety of requirements**: No resume content provided for either candidate.
   

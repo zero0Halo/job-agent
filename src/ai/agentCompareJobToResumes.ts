@@ -62,12 +62,12 @@ Do not wrap the results in markdown.
     console.log("\nComparison Complete!\n");
 
     return {
+      missingRequirements: parsed.missingRequirements,
       recommendedResume: parsed.recommendedResume,
       score: parsed.score,
-      missingRequirements: parsed.missingRequirements,
       strongMatches: parsed.strongMatches,
-      weakMatches: parsed.weakMatches,
       summary: parsed.summary,
+      weakMatches: parsed.weakMatches,
     };
   } catch (error) {
     if (count < attempts) {
