@@ -3,21 +3,23 @@ import { Match } from "./ai/agentExtractResume";
 import { AgentExtractResumeSchema } from "./ai/agentExtractResume";
 
 const OutputMarkdownSchema = z.object({
+  companyName: z.string(),
+  comparison: AgentExtractResumeSchema,
+  coverLetter: z.string(),
   formattedDate: z.string(),
   jobTitle: z.string(),
-  companyName: z.string(),
   url: z.string(),
-  comparison: AgentExtractResumeSchema,
 });
 
 type OutputMarkdown = z.infer<typeof OutputMarkdownSchema>;
 
 export function outputMarkdown({
+  companyName,
+  comparison,
+  coverLetter,
   formattedDate,
   jobTitle,
-  companyName,
   url,
-  comparison,
 }: OutputMarkdown) {
   return `
 # ${jobTitle} | ${companyName}
@@ -54,5 +56,18 @@ ${comparison.missingRequirements
       `* **${match.jobRequirement}**: ${match.candidateEvidence}`,
   )
   .join("\n")}
+
+---
+## Cover Letter
+
+\`\`\`text
+  ${coverLetter}
+
+  Sincerely,
+
+  Steve Swanson
+  (210) 262-2271
+  steve.e.swanson@gmail.com
+\`\`\`
   `;
 }

@@ -58,6 +58,7 @@ Do not wrap the results in markdown.
     return {
       missingRequirements: parsed.missingRequirements,
       recommendedResume: parsed.recommendedResume,
+      resumeData: parsed.resumeData,
       score: parsed.score,
       strongMatches: parsed.strongMatches,
       summary: parsed.summary,

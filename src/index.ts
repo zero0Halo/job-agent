@@ -52,8 +52,10 @@ async function main() {
     developerInfo,
     managerInfo,
   });
-  console.log(comparison);
-  // const coverLetter = await agentWriteCoverletter();
+  const coverLetter = await agentWriteCoverletter({
+    comparison,
+    jobDescription: payloadParsed.jobDescription,
+  });
 
   const now = new Date();
   const formattedDate = [
@@ -63,11 +65,12 @@ async function main() {
   ].join("-");
 
   const md = outputMarkdown({
+    companyName: companyName,
+    coverLetter,
+    comparison,
     formattedDate,
     jobTitle: jobTitle,
-    companyName: companyName,
     url: payloadParsed.jobUrl,
-    comparison,
   });
 
   if (!fs.existsSync("output")) {

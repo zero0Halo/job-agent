@@ -9,6 +9,7 @@ export const MatchSchema = z.object({
 
 export const AgentExtractResumeSchema = z.object({
   recommendedResume: z.enum(["developer", "manager", "unknown"]),
+  resumeData: z.string().nullable(),
   score: z.number(),
   missingRequirements: z.array(MatchSchema),
   strongMatches: z.array(MatchSchema),
@@ -22,6 +23,7 @@ export type AgentExtractResume = z.infer<typeof AgentExtractResumeSchema>;
 export function createAgentExtractResumeSchema(): AgentExtractResume {
   return {
     recommendedResume: "unknown",
+    resumeData: null,
     score: 0,
     missingRequirements: [],
     strongMatches: [],
@@ -62,6 +64,7 @@ Do not wrap the results in markdown.
         | "developer"
         | "manager"
         | "unknown",
+      resumeData: parsed.resumeData,
       score: parsed.score,
       missingRequirements: parsed.missingRequirements,
       strongMatches: parsed.strongMatches,
