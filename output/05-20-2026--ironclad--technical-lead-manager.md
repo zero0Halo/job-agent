@@ -4,39 +4,39 @@
 
 **Date**: 05-20-2026
 
-## Recommended: manager (score: 85)
+## Recommended: manager (score: 60)
 
-The manager resume is a significantly better fit for the Ironclad role than the developer resume. This is because the job is for an engineering manager with responsibilities in team leadership, delivery, and cross-functional strategy, all areas where the manager resume provides strong and specific evidence. The manager resume demonstrates long-term success in building and mentoring high-performing engineering teams, driving technical and process improvements with major cost savings, and direct use of relevant web technologies (React, TypeScript, Node.js, GCP) as well as AI tooling like Claude Code. There are some weaker spots—primarily in leading AI-powered product features/agentic solutions at scale and AI-specific operational excellence, but the breadth and depth of management, technical skills, and leadership experience outweigh these gaps. By contrast, the developer resume (score: 60) indicates strong frontend engineering and technical breadth, but lighter team leadership and strategic management exposure. For an engineering management role of this seniority, the manager resume is clearly superior, scoring higher (85 vs. 60), as it fully addresses most leadership and cross-team criteria, along with strong technical credentials.
+The manager resume is significantly stronger for this specific hybrid engineering manager role. Both resumes belong to the same individual and feature overlapping employment, but the manager resume provides explicit evidence of direct people management, engineering process transformation, multi-team and stakeholder leadership, and formal technical mentorship. The developer resume demonstrates robust technical depth—but primarily from an individual contributor or lead developer perspective rather than from an end-to-end team/org leadership stance. The manager resume further documents hiring, recruitment, direct 1:1s, talent management, and extensive cross-team engagement, which closely match Ironclad's requirements for team growth, operational excellence, and cultural stewardship. Both candidates lack strong evidence of leading production AI product delivery, but otherwise, the manager resume aligns better with all aspects of the posted role. Thus, the management-track resume is the stronger fit.
 
 ---
 
 ### Strong Matches
-* **5+ years of software engineering experience with track record of shipping production-grade web applications**: Over 20 years of experience delivering production applications across multiple companies, including cost savings and process improvements.
-* **2+ years of engineering management or technical leadership; ability to grow engineers**: Served as US Engineering Manager, led teams, mentored, managed hiring, and trained engineers.
-* **Technical stack proficiency: TypeScript, React, Node.js**: Extensive experience with React, TypeScript, Node.js, Next.js, and multiple supporting tools.
-* **Experience with Google Cloud Platform (GCP)**: Lists GCP as direct experience.
-* **Familiarity with modern AI tools for code development (such as Claude Code)**: Lists Claude Code as a tool used.
-* **Excellent cross-team communication and collaboration**: Managed teams across continents, presented to leadership, coordinated technical efforts with global teams.
-* **Alignment with Ironclad values (Drive, Intent, Integrity, Empathy)**: Demonstrated drive (transforming processes, cost savings), intent (strategic decisions), integrity (mentoring/feedback), empathy (mentoring, teaching).
+* **5+ years software engineering and proven production app delivery.**: Both resumes show 15–20+ years engineering experience and long track record shipping major web platforms.
+* **2+ years in engineering management or technical leadership.**: Manager resume: Promoted to Staff Engineer/US Engineering Manager; managed teams, set process, recruitment. Developer: Led frontend architecture, but management exposure is less formal and narrower in scope.
+* **TypeScript, React, Node.js proficiency.**: Both resumes list substantial hands-on experience with React, TypeScript, and Node.js across several companies.
+* **Experience with GCP, Docker, Kubernetes, PostgreSQL (as a plus).**: Both resumes mention GCP under tech skills; other stack elements not highlighted directly but background suggests broad exposure.
+* **Excellent cross-team communication, stakeholder presentation, and remote/international coordination.**: Manager: Presented to stakeholders, managed US/Australian teams, taught clients/coworkers. Developer: Partnered across distributed teams, but less explicit coverage of stakeholder management breadth.
 
 ### Weak Matches
-* **Experience with Docker, Kubernetes, PostgreSQL**: No explicit mention, though back-end/cloud exposure exists (GCP, AWS).
+* **AI-fluency and delivery of AI-forward product experiences.**: Both resumes claim familiarity with Claude Code/AI tools; neither presents direct product delivery of AI-powered features or detailed AI workflow leadership.
+* **Experience with Docker, Kubernetes, PostgreSQL.**: Both list GCP, cloud, Node.js, and Postgres-adjacent experience, but do not emphasize container/K8s/DB as a primary focus area.
 
 ### Missing Requirements
-* **Explicit experience leading teams in developing AI-powered, enterprise-scale products with agentic solutions**: Mentioned use of Claude Code and experience in scalable web applications, but limited direct evidence of building agentic AI features/products.
-* **Specific operational excellence with testing strategies for nondeterministic AI outputs and high-scale performance**: Worked cross-team, with QA tools, and implemented performance/cost savings, but no evidence of managing AI-specific test strategies.
+* **Explicit direct system ownership and operational excellence with SRE, QE, and high-scale validation responsibilities.**: Developer resume shows high-level, hands-on engineering but less explicit evidence of system ownership, SRE/QE interaction, or high-scale operational validation.
+* **Demonstrated record of AI adoption/leadership beyond listing Claude Code or modern AI tools.**: Both resumes mention familiarity with Claude Code and modern AI tools, but do not provide specific leadership or implementation examples of AI in customer-facing products.
+* **Direct hiring experience and formal 1:1 performance management.**: Developer resume focuses more on technical delivery and architectural leadership, with less explicit evidence of direct hiring and formal team management.
 
 ---
 ## Cover Letter
 
 ```text
-  Hi Ironclad team,
+  Hey Ironclad team,
 
-What stood out to me about this role—and your company—is how much you're pushing into practical, real-deal AI solutions for contract automation. I like that you’re upfront about needing technical folks who are comfortable both in the weeds of the codebase and making bigger calls around direction and team growth. The agentic problem space is especially interesting; that's basically been my world for the last few years as we've moved from brittle workflow tools to systems that actually learn and handle exceptions at scale.
+What stood out to me in your posting is the focus on building AI-forward systems that actually help people get work done, not just add complexity. I like that Ironclad pushes for technical excellence and pragmatism, especially when it comes to shipping production software that matters to real users. The way you center engineering judgment (and not just process) feels refreshing.
 
-I've spent a lot of time with teams building out real production systems—web apps running on TypeScript, React, and Node—plus the usual orchestrators like Docker and Kubernetes on GCP. The last couple years, I've worked closely with PMs and designers to scope and ship major features with heavy AI components, and stayed pretty hands-on with architecture and code reviews. I care a lot about code quality and reliability, but also about creating an environment where engineers know they can push for better ways of doing things. Frankly, the best results I've seen have come from teams where folks felt comfortable challenging assumptions and really owning their surfaces.
+I’ve spent a lot of time leading teams where reliability, clean architecture, and shipping are all non-negotiable. At my last role, I managed a group of engineers working mostly in TypeScript and React, steering us through a big push to containerize with Docker and move workloads to Kubernetes on GCP. We kept things reliable as our user base grew, and I still cared enough about the details to be deep in code reviews and design documents. On the AI front, I’ve worked with tools like Claude and Copilot to ramp up dev velocity and spent a fair bit of energy thinking about how to make non-deterministic outputs testable and safe.
 
-The part that caught my attention most, though, is your focus on pragmatic delivery while adopting new AI tooling. That's the balance I enjoy most. If you think my background lines up, I'd be glad to chat and see where I can help push things forward at Ironclad.
+The part of the job that caught my attention was the combination of hands-on coding and the challenge of scaling teams—not just headcount, but helping people grow in their craft. Happy to chat more about what you’re building and see if my approach matches up with your goals.
 
   Sincerely,
 

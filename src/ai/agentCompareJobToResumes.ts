@@ -4,6 +4,7 @@ import {
   AgentExtractResume,
   createAgentExtractResumeSchema,
 } from "./agentExtractResume";
+import { calculateScore } from "../calculateScore";
 
 const attempts = 3;
 let count = 0;
@@ -36,8 +37,9 @@ export async function agentCompareJobToResumes({
     `
 Compare both resumes against the job.
 Choose which resume is stronger for this specific role.
-You must explain why one is better than the other.
-Do not give the same score unless they are genuinely indistinguishable.
+You must explain why one is better than the other, and no walls of text.
+Avoid using dashes.
+
 Compare the following job description to the candidate's resume information:
 
 Job Description: ${jobDescription}
@@ -46,20 +48,24 @@ Manager Resume Information: ${JSON.stringify(managerInfo)}
 
 Developer Resume Information: ${JSON.stringify(developerInfo)}
 
+Do not calculate score.
+Set score to 0.
+The application will calculate score after parsing.
+
 Do not wrap the results in markdown.
 `,
   );
 
   try {
     const parsed = result?.finalOutput ?? createAgentExtractResumeSchema();
-
+    const score = calculateScore(parsed);
     console.log("Comparison Complete!\n");
 
     return {
       missingRequirements: parsed.missingRequirements,
       recommendedResume: parsed.recommendedResume,
       resumeData: parsed.resumeData,
-      score: parsed.score,
+      score,
       strongMatches: parsed.strongMatches,
       summary: parsed.summary,
       weakMatches: parsed.weakMatches,
