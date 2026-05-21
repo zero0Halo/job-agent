@@ -13,13 +13,20 @@ const agent = new Agent({
   name: "Job to resume comparison agent",
   outputType: AgentExtractResumeSchema,
   instructions: `
-You compare the requirements of the passed job description to the candidate information extracted from the resume.
+You compare each explicit job requirement against the candidate resume information.
 
-Return a score from 0 to 100 for how well the candidate matches the job description, and explain the reasoning behind the score.
+Do not calculate score. Always set score to 0.
 
-Do not wrap the results in markdown.
+For matches:
+- Include every major explicit job requirement from the job description.
+- Do not include general compliments.
+- Each match must be classified as strong, weak, or missing.
+- Use "strong" only when the resume has direct evidence.
+- Use "weak" when the evidence is adjacent or implied.
+- Use "missing" when there is no clear evidence.
 
 Do not invent details.
+Do not wrap the results in markdown.
 `,
 });
 

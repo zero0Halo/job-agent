@@ -6,17 +6,23 @@
 
 ## Recommended: manager (score: 100)
 
-The manager resume is a stronger fit for the Engineering Manager position. It clearly demonstrates direct experience managing engineers, cross-team leadership, and technical ownership that the job demands. While the developer resume shows strong technical depth, the manager version provides explicit evidence of all people-leadership, team planning, and executive engagement responsibilities this role requires. Therefore, the manager resume best matches the requirements for this position.
+The manager resume is stronger for this engineering manager role. It emphasizes direct experience managing engineering teams, coordinating cross-team efforts, driving agile adoption, mentoring, setting success metrics, and handling personnel issues. The developer resume is more focused on individual technical impact and frontend architecture, but has less explicit evidence about management at the team and process level that this PrizePicks role requires. The manager resume provides deeper and broader direct matches for every major managerial requirement.
 
 ---
 
 ### Strong Matches
-* **5-8 years relevant experience**: Over 20 years of experience in engineering and engineering leadership roles.
-* **Engineering management for product teams, supervision and team leadership**: U.S. Engineering Manager at WGAC. Directly managed teams, coordinated between US and AU staff, responsible for hiring, reviews, and cultural/technical process improvement.
-* **Technical ownership of a domain, advanced technical skills in programming languages like JavaScript/TypeScript and React**: Expert level with React, JavaScript/TypeScript. Hands-on technical leadership and UI/product engineering.
-* **Defining, planning and measuring success metrics. Handling schedules, performance reviews, removing hurdles.**: Responsible for delivery cadence, performance metrics, setting and meeting deadlines, led cost-saving initiatives, and removed technical blockers as Engineering Manager.
-* **Experience coordinating with executive leaders and aligning with company strategy**: Coordinated US and AU technical teams, worked with higher-level staff to set expectations and ensure delivery, reported to executive leadership.
-* **Experience with cloud-based technologies and modern SaaS stacks.**: Lists strong experience with AWS, GCP, and numerous modern SaaS and frontend stacks. Led migrations and improvements to cloud infrastructure.
+* **Owns the technical aspect of a domain specific area.**: Managed two U.S. engineering departments, made technical infrastructure decisions, led adoption and upgrades of critical frontend systems.
+* **Supervises, coordinates, and reviews work.**: Managed internal and contract engineering staff, set up agile process, led code reviews, coordinated efforts between U.S. and Australia teams.
+* **Estimates personnel needs and schedules.**: Defined team structure and resources at WGAC, managed hiring and scheduling for department workloads.
+* **Assigns and reviews work to meet completion date.**: Coordinated and assigned engineering projects and tasks across multiple teams, performed reviews to ensure delivery timelines.
+* **Evaluate performance, resolve complaints, and make recommendations.**: Regularly evaluated and mentored staff, worked to resolve team friction, gave guidance and career feedback.
+* **Defines, plans and measures success metrics.**: Defined cost saving targets, tracked delivery cadence improvements, set benchmarks for process upgrades.
+* **Removes technical and personnel hurdles for team to succeed.**: Removed blockers for distributed teams, transitioned company to agile, improved developer onboarding and internal education.
+* **Works with higher-level staff to set expectations and coordinate on work to be delivered.**: Worked closely with leadership, product, and cross-continental teams to align technical vision and execution.
+* **5-8 years of relevant work experience.**: Over 20 years in software development, including multiple years in engineering management roles.
+* **Demonstrated advanced experience with domain area programming language.**: Advanced experience with JavaScript/TypeScript, React, and associated technologies in web engineering roles.
+* **Track record of being an Engineering Manager for product teams to drive the desired result from complex requirement**: Led engineering departments and complex technical projects at U.S. and international scale. Demonstrated process improvements and delivery of major projects.
+* **Advanced experience in JavaScript/TypeScript, React, Ruby, Rails, Roda, Golang, Echo.**: Advanced in JavaScript/TypeScript and React for over 15 years. No evidence for Ruby, Rails, Roda, Golang, Echo.
 
 ### Weak Matches
 
@@ -28,13 +34,13 @@ The manager resume is a stronger fit for the Engineering Manager position. It cl
 ## Cover Letter
 
 ```text
-  Hey PrizePicks team,
+  Hi PrizePicks team,
 
-What stood out to me about this role—aside from the tech stack—is how the team owns a product end-to-end, from sorting out technical hurdles to shipping real stuff for real users. I like that responsibility isn’t just about code, but also clearing obstacles so people can do their best work. That’s pretty much how I’ve run things at WGAC: owning a domain, coordinating engineers, making project plans, and still having an eye for small details without sliding into micromanaging.
+What stood out to me about this role is how much sway there is over both technical and team direction—it’s not just line management, but actually owning a chunk of the platform and pushing it forward. I like that your stack has a mix of Ruby, Rails, Go, and modern front-end tools. I’ve spent a lot of time in similar environments, building up teams around React, TypeScript, and Rails, and running through plenty of real scaling headaches along the way.
 
-I’ve spent a lot of time working with React, TypeScript, and all the usual web tools—most recently leading engineers at WGAC, but also hands-on at companies like GoodRx and RetailMeNot. I’ve seen a fair share of growing teams, shifting timelines, and requirements that don’t stay put. The part of the role that caught my attention is measuring success and adjusting as you go. At my last job, I set up scorecards and regular feedback so folks weren’t blindsided at review time, and I always try to connect the engineering work back to product goals.
+The part of the job that caught my attention is how much you emphasize removing blockers for the team. That’s been my default mode for a while: jumping in to untangle gnarly pieces of code, clearing up design goals, and making sure folks get what they need to do their best work. Whether it was setting up better review flows or keeping cross-team projects on track, I’ve had the most impact just by making life easier for good engineers. I’ve also handled the grouchier parts—estimating, hiring, and sometimes having hard conversations when things weren't working out.
 
-Happy to tell you more about the places I’ve worked or how I organize a team. I’m based near Austin but open to remote, and always up for chatting tech, sports, or what it actually takes to get good software out the door.
+I like that your focus is on results and not just clocking hours. Happy to dig in on anything technical or organizational. If you think someone who’s as comfortable in the code as in reviews and 1:1s is a fit, let’s keep the conversation going.
 
   Sincerely,
 
