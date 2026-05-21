@@ -1,0 +1,3 @@
+# Inside folder_name/.gitignore
+*
+!.gitignore
