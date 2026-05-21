@@ -4,22 +4,22 @@
 
 **Date**: 05-20-2026
 
-## Recommended: manager (score: 93)
+## Recommended: manager (score: 100)
 
-The manager resume is the stronger fit for the PrizePicks Engineering Manager role. It clearly shows direct experience leading engineering teams, overseeing multiple departments, implementing agile processes, and driving technical direction—all core needs for this job. The developer resume demonstrates technical depth and some leadership, but prioritizes hands-on engineering over department management. For a people-focused, process-owning management position, the manager profile better matches the need for driving teams, strategic initiatives, and cross-team coordination. Both show excellent technical fundamentals, yet direct and repeated engineering management experience sets the manager resume apart.
+The manager resume is a stronger fit for the Engineering Manager position. It clearly demonstrates direct experience managing engineers, cross-team leadership, and technical ownership that the job demands. While the developer resume shows strong technical depth, the manager version provides explicit evidence of all people-leadership, team planning, and executive engagement responsibilities this role requires. Therefore, the manager resume best matches the requirements for this position.
 
 ---
 
 ### Strong Matches
-* **Management experience (engineering management, team leadership, mentoring)**: U.S. Engineering Manager at WGAC, managed multiple departments and contractors, mentored interns at RetailMeNot, led creative team at Plain Black.
-* **Agile methodologies and process improvement**: Built culture and processes to shift department from waterfall to agile at WGAC.
-* **Strong technical experience in web development (JS, React, Node, etc.)**: Extensive experience as UI Engineer, Senior Front End Developer, and Software Engineer using JavaScript, React, Node, Webpack, etc.
-* **Cross-team and international collaboration**: Coordinated with Australian engineering departments; managed US departments and Bolivian contractors at WGAC.
-* **Cost savings and process optimization**: Leaned into existing Shopify toolsets and implemented technical solutions saving companies significant annual costs.
-* **Training and curriculum development**: Created and taught classes for new hires and staff at multiple companies; wrote a 200-page book on design and templating.
+* **5-8 years relevant experience**: Over 20 years of experience in engineering and engineering leadership roles.
+* **Engineering management for product teams, supervision and team leadership**: U.S. Engineering Manager at WGAC. Directly managed teams, coordinated between US and AU staff, responsible for hiring, reviews, and cultural/technical process improvement.
+* **Technical ownership of a domain, advanced technical skills in programming languages like JavaScript/TypeScript and React**: Expert level with React, JavaScript/TypeScript. Hands-on technical leadership and UI/product engineering.
+* **Defining, planning and measuring success metrics. Handling schedules, performance reviews, removing hurdles.**: Responsible for delivery cadence, performance metrics, setting and meeting deadlines, led cost-saving initiatives, and removed technical blockers as Engineering Manager.
+* **Experience coordinating with executive leaders and aligning with company strategy**: Coordinated US and AU technical teams, worked with higher-level staff to set expectations and ensure delivery, reported to executive leadership.
+* **Experience with cloud-based technologies and modern SaaS stacks.**: Lists strong experience with AWS, GCP, and numerous modern SaaS and frontend stacks. Led migrations and improvements to cloud infrastructure.
 
 ### Weak Matches
-* **Experience with cloud infrastructure**: Lists AWS and GCP under 'Experience With', but limited direct project descriptions.
+
 
 ### Missing Requirements
 
@@ -28,13 +28,13 @@ The manager resume is the stronger fit for the PrizePicks Engineering Manager ro
 ## Cover Letter
 
 ```text
-  Hi PrizePicks team,
+  Hey PrizePicks team,
 
-What stood out to me about this role is your mix of product ownership and hands-on technical leadership. I like that you’re looking for someone who can both make decisions at the high level and keep code quality moving in the right direction—feels familiar. At Who Gives a Crap, I built up a US engineering org that was collaborating across time zones, wrangling both process shifts (waterfall to agile) and a lot of practical, everyday stuff like scheduling, reviewing code, and keeping teams out of each other's way. The team got into a regular flow and saved a lot of time and money (sometimes in surprising places, like leveraging Shopify for a big win).
+What stood out to me about this role—aside from the tech stack—is how the team owns a product end-to-end, from sorting out technical hurdles to shipping real stuff for real users. I like that responsibility isn’t just about code, but also clearing obstacles so people can do their best work. That’s pretty much how I’ve run things at WGAC: owning a domain, coordinating engineers, making project plans, and still having an eye for small details without sliding into micromanaging.
 
-I’ve spent a lot of time working in JavaScript and React, on both greenfield projects and complex refactors, leading teams through tech upgrades (Webpack, Node, Next.js at RxSaver/GoodRx), and keeping an eye out for ways to simplify systems and avoid unnecessary overhead. Most days, I find the team challenges and the technical ones overlap more than people admit—assigning work clearly, clearing blockers, bouncing requirements off stakeholders, helping someone through a gnarly integration, etc. I’m comfortable with the people management side, but I still like to be close enough to the code to help when the team gets stuck.
+I’ve spent a lot of time working with React, TypeScript, and all the usual web tools—most recently leading engineers at WGAC, but also hands-on at companies like GoodRx and RetailMeNot. I’ve seen a fair share of growing teams, shifting timelines, and requirements that don’t stay put. The part of the role that caught my attention is measuring success and adjusting as you go. At my last job, I set up scorecards and regular feedback so folks weren’t blindsided at review time, and I always try to connect the engineering work back to product goals.
 
-The part of the role that caught my attention is the openness to remote. I’m based in Texas, but I’ve managed and worked with distributed teams for years, and I actually really enjoy the clarity you get in remote settings. I’m happy to chat more about how I organize teams, set expectations, or anything else that comes to mind. Thanks for reading.
+Happy to tell you more about the places I’ve worked or how I organize a team. I’m based near Austin but open to remote, and always up for chatting tech, sports, or what it actually takes to get good software out the door.
 
   Sincerely,
 

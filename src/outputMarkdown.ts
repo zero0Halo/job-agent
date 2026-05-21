@@ -34,7 +34,8 @@ ${comparison.summary}
 ---
 
 ### Strong Matches
-${comparison.strongMatches
+${comparison.matches
+  .filter((match: Match) => match.confidence === "strong")
   .map(
     (match: Match) =>
       `* **${match.jobRequirement}**: ${match.candidateEvidence}`,
@@ -42,7 +43,8 @@ ${comparison.strongMatches
   .join("\n")}
 
 ### Weak Matches
-${comparison.weakMatches
+${comparison.matches
+  .filter((match: Match) => match.confidence === "weak")
   .map(
     (match: Match) =>
       `* **${match.jobRequirement}**: ${match.candidateEvidence}`,
@@ -50,7 +52,8 @@ ${comparison.weakMatches
   .join("\n")}
 
 ### Missing Requirements
-${comparison.missingRequirements
+${comparison.matches
+  .filter((match: Match) => match.confidence === "missing")
   .map(
     (match: Match) =>
       `* **${match.jobRequirement}**: ${match.candidateEvidence}`,

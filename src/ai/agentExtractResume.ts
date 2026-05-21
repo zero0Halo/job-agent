@@ -4,16 +4,14 @@ import { z } from "zod";
 export const MatchSchema = z.object({
   jobRequirement: z.string(),
   candidateEvidence: z.string(),
-  confidence: z.enum(["high", "medium", "low"]),
+  confidence: z.enum(["strong", "weak", "missing"]),
 });
 
 export const AgentExtractResumeSchema = z.object({
   recommendedResume: z.enum(["developer", "manager", "unknown"]),
   resumeData: z.string().nullable(),
   score: z.number(),
-  missingRequirements: z.array(MatchSchema),
-  strongMatches: z.array(MatchSchema),
-  weakMatches: z.array(MatchSchema),
+  matches: z.array(MatchSchema),
   summary: z.string(),
 });
 
@@ -25,9 +23,7 @@ export function createAgentExtractResumeSchema(): AgentExtractResume {
     recommendedResume: "unknown",
     resumeData: null,
     score: 0,
-    missingRequirements: [],
-    strongMatches: [],
-    weakMatches: [],
+    matches: [],
     summary: "",
   };
 }
@@ -60,15 +56,13 @@ Do not wrap the results in markdown.
     console.log("Resume information extracted!\n");
 
     return {
+      matches: parsed.matches,
       recommendedResume: parsed.recommendedResume as
         | "developer"
         | "manager"
         | "unknown",
       resumeData: parsed.resumeData,
       score: parsed.score,
-      missingRequirements: parsed.missingRequirements,
-      strongMatches: parsed.strongMatches,
-      weakMatches: parsed.weakMatches,
       summary: parsed.summary,
     };
   } catch (error) {
