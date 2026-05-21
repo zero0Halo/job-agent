@@ -38,7 +38,7 @@ ${comparison.matches
   .filter((match: Match) => match.confidence === "strong")
   .map(
     (match: Match) =>
-      `* **${match.jobRequirement}**: ${match.candidateEvidence}`,
+      `* **${match.jobRequirement}**: ${match.candidateEvidence}\n\n`,
   )
   .join("\n")}
 
@@ -47,7 +47,7 @@ ${comparison.matches
   .filter((match: Match) => match.confidence === "weak")
   .map(
     (match: Match) =>
-      `* **${match.jobRequirement}**: ${match.candidateEvidence}`,
+      `* **${match.jobRequirement}**: ${match.candidateEvidence}\n\n`,
   )
   .join("\n")}
 
@@ -56,7 +56,7 @@ ${comparison.matches
   .filter((match: Match) => match.confidence === "missing")
   .map(
     (match: Match) =>
-      `* **${match.jobRequirement}**: ${match.candidateEvidence}`,
+      `* **${match.jobRequirement}**: ${match.candidateEvidence}\n\n`,
   )
   .join("\n")}
 
