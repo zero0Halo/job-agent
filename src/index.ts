@@ -4,13 +4,16 @@ import fs from "node:fs";
 import { z } from "zod";
 import { mkdir, writeFile } from "node:fs/promises";
 import { stdin as input, stdout as output } from "node:process";
+// AGENTS
 import { agentExtractJobData } from "./ai/agentExtractJobData";
-import { agentExtractResume } from "./ai/agentExtractResume";
 import { agentCompareJobToResumes } from "./ai/agentCompareJobToResumes";
-import { outputMarkdown } from "./outputMarkdown";
-import { nameToFilename } from "./nameToFilename";
-import { loadPdf } from "./loadPdf";
+import { agentExtractResume } from "./ai/agentExtractResume";
 import { agentWriteCoverletter } from "./ai/agentWriteCoverletter";
+// SCRIPTS
+import { loadPdf } from "./loadPdf";
+import { nameToFilename } from "./nameToFilename";
+import { outputMarkdown } from "./outputMarkdown";
+import { outputHtml } from "./outputHtml";
 
 // Loads environment variables from .env file
 dotenv.config();
@@ -80,8 +83,15 @@ async function main() {
     `output/${formattedDate}--${nameToFilename(companyName)}--${nameToFilename(jobTitle)}.md`,
     md,
   );
+  console.log("Markdown output generated in the output/ directory!\n");
 
-  console.log("Markdown output generated in the output/ directory!");
+  const html = await outputHtml({ md, companyName, jobTitle, formattedDate });
+
+  if (html) {
+    console.log("HTML output generated in the output/html/ directory!\n");
+  } else {
+    console.error("Failed to generate HTML output.\n");
+  }
 }
 
 main()
