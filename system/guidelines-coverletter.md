@@ -44,3 +44,5 @@
 - "Dynamic leader"
 - "Fast-paced environment"
 - "Leveraged synergies"
+- "I like that this role at"
+- "What stood out to me about this role is"

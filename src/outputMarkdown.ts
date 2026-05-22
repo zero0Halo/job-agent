@@ -33,7 +33,7 @@ ${comparison.summary}
 
 ---
 
-### Strong Matches
+## Strong Matches
 ${comparison.matches
   .filter((match: Match) => match.confidence === "strong")
   .map(
@@ -42,7 +42,9 @@ ${comparison.matches
   )
   .join("\n\n")}
 
-### Weak Matches
+---
+
+## Weak Matches
 ${comparison.matches
   .filter((match: Match) => match.confidence === "weak")
   .map(
@@ -51,7 +53,9 @@ ${comparison.matches
   )
   .join("\n\n")}
 
-### Missing Requirements
+---
+
+## Missing Requirements
 ${comparison.matches
   .filter((match: Match) => match.confidence === "missing")
   .map(
@@ -61,6 +65,7 @@ ${comparison.matches
   .join("\n\n")}
 
 ---
+
 ## Cover Letter
 
   \`\`\`text
