@@ -63,7 +63,8 @@ ${comparison.matches
 ---
 ## Cover Letter
 
-\`\`\`text
+  \`\`\`text
+
   ${coverLetter}
 
   Sincerely,
@@ -71,6 +72,7 @@ ${comparison.matches
   Steve Swanson
   (210) 262-2271
   steve.e.swanson@gmail.com
-\`\`\`
+
+  \`\`\`
   `;
 }
