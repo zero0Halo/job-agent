@@ -23,7 +23,7 @@ export function outputMarkdown({
 }: OutputMarkdown) {
   return `
 # ${jobTitle} | ${companyName}
-**URL**: ${url}
+**URL**: [${url}](${url})
 
 **Date**: ${formattedDate}
 
@@ -40,7 +40,7 @@ ${comparison.matches
     (match: Match) =>
       `* **${match.jobRequirement}**: ${match.candidateEvidence}\n\n`,
   )
-  .join("\n")}
+  .join("\n\n")}
 
 ### Weak Matches
 ${comparison.matches
@@ -49,7 +49,7 @@ ${comparison.matches
     (match: Match) =>
       `* **${match.jobRequirement}**: ${match.candidateEvidence}\n\n`,
   )
-  .join("\n")}
+  .join("\n\n")}
 
 ### Missing Requirements
 ${comparison.matches
@@ -58,7 +58,7 @@ ${comparison.matches
     (match: Match) =>
       `* **${match.jobRequirement}**: ${match.candidateEvidence}\n\n`,
   )
-  .join("\n")}
+  .join("\n\n")}
 
 ---
 ## Cover Letter

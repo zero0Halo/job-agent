@@ -18,7 +18,7 @@ export async function outputHtml({
   companyName,
   jobTitle,
   formattedDate,
-}: OutputHtml): Promise<boolean> {
+}: OutputHtml): Promise<boolean | string> {
   try {
     if (!fs.existsSync("output/html")) {
       await mkdir("output/html", { recursive: true });
@@ -30,13 +30,17 @@ export async function outputHtml({
     const renderedTemplate = template
       .replace("{{TITLE}}", `${jobTitle} | ${companyName}`)
       .replace("{{BODY}}", html);
+    const htmlFilename = nameToFilename({
+      companyName,
+      extension: "html",
+      formattedDate,
+      jobTitle,
+      parentDirectory: "output/html",
+    });
 
-    await writeFile(
-      `output/html/${formattedDate}--${nameToFilename(companyName)}--${nameToFilename(jobTitle)}.html`,
-      renderedTemplate,
-    );
+    await writeFile(htmlFilename, renderedTemplate);
 
-    return true;
+    return htmlFilename;
   } catch (err) {
     console.error("Error writing HTML file:", err);
     return false;

@@ -4,6 +4,7 @@ import fs from "node:fs";
 import { z } from "zod";
 import { mkdir, writeFile } from "node:fs/promises";
 import { stdin as input, stdout as output } from "node:process";
+import open from "open";
 // AGENTS
 import { agentExtractJobData } from "./ai/agentExtractJobData";
 import { agentCompareJobToResumes } from "./ai/agentCompareJobToResumes";
@@ -75,19 +76,29 @@ async function main() {
     jobTitle: jobTitle,
     url: payloadParsed.jobUrl,
   });
+  const mdFilename = nameToFilename({
+    parentDirectory: "output",
+    formattedDate,
+    companyName,
+    jobTitle,
+    extension: "md",
+  });
 
   if (!fs.existsSync("output")) {
     await mkdir("output", { recursive: true });
   }
-  await writeFile(
-    `output/${formattedDate}--${nameToFilename(companyName)}--${nameToFilename(jobTitle)}.md`,
-    md,
-  );
+  await writeFile(mdFilename, md);
   console.log("Markdown output generated in the output/ directory!\n");
 
-  const html = await outputHtml({ md, companyName, jobTitle, formattedDate });
+  const htmlPath = await outputHtml({
+    md,
+    companyName,
+    jobTitle,
+    formattedDate,
+  });
 
-  if (html) {
+  if (typeof htmlPath === "string") {
+    await open(htmlPath);
     console.log("HTML output generated in the output/html/ directory!\n");
   } else {
     console.error("Failed to generate HTML output.\n");
