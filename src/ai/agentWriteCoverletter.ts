@@ -40,6 +40,7 @@ ${jobDescription}
 
 Write a cover letter that best matches the resume to the job description, following the guidelines.
 Use Markdown formatting, but do not wrap the cover letter in markdown.
+Never start any sentence with phrases like, "What stood out to me about this role is...".
 Do not create a signature at the bottom.
   `,
   );
