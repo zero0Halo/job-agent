@@ -1,17 +1,41 @@
 import { Agent, run } from "@openai/agents";
-import {
-  AgentExtractResumeSchema,
-  AgentExtractResume,
-  createAgentExtractResumeSchema,
-} from "./agentExtractResume";
 import { calculateScore } from "../calculateScore";
+import { z } from "zod";
+
+const MatchSchema = z.object({
+  jobRequirement: z.string(),
+  candidateEvidence: z.string(),
+  confidence: z.enum(["strong", "weak", "missing"]),
+  importance: z.enum(["critical", "important", "neutral"]),
+});
+
+const AgentCompareJobToResumesSchema = z.object({
+  recommendedResume: z.enum(["developer", "manager", "unknown"]),
+  resumeData: z.string().nullable(),
+  score: z.number(),
+  matches: z.array(MatchSchema),
+  summary: z.string(),
+});
+export type AgentCompareJobToResumes = z.infer<
+  typeof AgentCompareJobToResumesSchema
+>;
+
+function createAgentCompareJobToResumes(): AgentCompareJobToResumes {
+  return {
+    recommendedResume: "unknown",
+    resumeData: null,
+    score: 0,
+    matches: [],
+    summary: "",
+  };
+}
 
 const attempts = 3;
 let count = 0;
 
 const agent = new Agent({
   name: "Job to resume comparison agent",
-  outputType: AgentExtractResumeSchema,
+  outputType: AgentCompareJobToResumesSchema,
   instructions: `
 You are a skeptical resume/job-fit auditor.
 
@@ -56,7 +80,7 @@ export async function agentCompareJobToResumes({
   jobDescription: string;
   developerInfo: any;
   managerInfo: any;
-}): Promise<AgentExtractResume> {
+}): Promise<AgentCompareJobToResumes> {
   const result = await run(
     agent,
     `
@@ -93,7 +117,7 @@ ${JSON.stringify(developerInfo)}
   );
 
   try {
-    const parsed = result?.finalOutput ?? createAgentExtractResumeSchema();
+    const parsed = result?.finalOutput ?? createAgentCompareJobToResumes();
     const score = calculateScore(parsed);
     console.log("Comparison Complete!\n");
 
@@ -120,6 +144,6 @@ ${JSON.stringify(developerInfo)}
 
     console.error("Error parsing resume information: ", error);
 
-    return createAgentExtractResumeSchema();
+    return createAgentCompareJobToResumes();
   }
 }
