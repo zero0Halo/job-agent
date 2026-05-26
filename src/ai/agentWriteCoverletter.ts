@@ -13,7 +13,10 @@ export async function agentWriteCoverletter({
 }): Promise<string> {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
-  const mdPath = path.join(__dirname, `../../system/guidelines-coverletter.md`);
+  const mdPath = path.join(
+    __dirname,
+    `../../system/guidelines/guidelines-coverletter.md`,
+  );
   const guidelines = await readFile(mdPath, "utf8");
 
   const agent = new Agent({
