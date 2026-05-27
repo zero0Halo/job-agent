@@ -16,6 +16,7 @@ export const AgentExtractResumeSchema = z.object({
 });
 
 export type AgentExtractResume = z.infer<typeof AgentExtractResumeSchema>;
+export type Match = z.infer<typeof MatchSchema>;
 
 export function createAgentExtractResumeSchema(): AgentExtractResume {
   return {

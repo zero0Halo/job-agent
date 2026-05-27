@@ -21,13 +21,17 @@ export function outputMarkdown({
   jobTitle,
   url,
 }: OutputMarkdown) {
+  const recommendedResume =
+    comparison.recommendedResume.charAt(0).toUpperCase() +
+    comparison.recommendedResume.slice(1);
+
   return `
 # ${jobTitle} | ${companyName}
 **URL**: [${url}](${url})
 
 **Date**: ${formattedDate}
 
-## Recommended: ${comparison.recommendedResume} (score: ${comparison.score})
+## Recommended: ${recommendedResume} (score: ${comparison.score})
 
 ${comparison.summary}
 
