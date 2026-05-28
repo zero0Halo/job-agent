@@ -9,12 +9,14 @@ const MatchSchema = z.object({
   importance: z.enum(["critical", "important", "neutral"]),
 });
 
-const AgentCompareJobToResumesSchema = z.object({
+export const AgentCompareJobToResumesSchema = z.object({
+  companySummary: z.string(),
+  matches: z.array(MatchSchema),
+  reasonRecommendedResume: z.string(),
+  reasonWhyMe: z.string(),
   recommendedResume: z.enum(["developer", "manager", "unknown"]),
   resumeData: z.string().nullable(),
   score: z.number(),
-  matches: z.array(MatchSchema),
-  summary: z.string(),
 });
 export type AgentCompareJobToResumes = z.infer<
   typeof AgentCompareJobToResumesSchema
@@ -22,11 +24,13 @@ export type AgentCompareJobToResumes = z.infer<
 
 function createAgentCompareJobToResumes(): AgentCompareJobToResumes {
   return {
+    companySummary: "",
+    matches: [],
+    reasonRecommendedResume: "",
+    reasonWhyMe: "",
     recommendedResume: "unknown",
     resumeData: null,
     score: 0,
-    matches: [],
-    summary: "",
   };
 }
 
@@ -97,10 +101,15 @@ Weak matches are not equivalent to strong matches.
 
 Do not use holistic impressions or optimism to influence the recommendation.
 
+Once analyzed, provide 1 sentence summary of the following:
+- What does the company do?
+- Why was the recommended resume chosen?
+- How do I fit with the job and company based on the job description and my resume information?
+
 Keep explanations concise.
 Avoid walls of text.
-Avoid markdown.
-Avoid dashes.
+No markdown.
+No dashes, em or otherwise.
 
 Do not calculate score.
 Set score to 0.
@@ -122,11 +131,13 @@ ${JSON.stringify(developerInfo)}
     console.log("Comparison Complete!\n");
 
     return {
+      companySummary: parsed.companySummary,
       matches: parsed.matches,
+      reasonRecommendedResume: parsed.reasonRecommendedResume,
+      reasonWhyMe: parsed.reasonWhyMe,
       recommendedResume: parsed.recommendedResume,
       resumeData: parsed.resumeData,
       score,
-      summary: parsed.summary,
     };
   } catch (error) {
     if (count < attempts) {

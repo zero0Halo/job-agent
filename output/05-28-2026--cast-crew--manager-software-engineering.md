@@ -1,0 +1,81 @@
+
+# Manager, Software Engineering | Cast & Crew
+**URL**: [https://www.linkedin.com/jobs/view/4418850800/](https://www.linkedin.com/jobs/view/4418850800/)
+
+**Date**: 05-28-2026
+
+## Recommended: Developer (score: 11)
+
+* **Company summary**: Cast & Crew is a major entertainment technology and services provider offering screenwriting software, digital payroll, accounting, and data/reporting tools to support productions in the global entertainment industry.
+
+* **Why this resume?**: Recommended the developer resume because it provides slightly more direct and detailed technical evidence for API-driven React development, scalable frontend architectures, and explicit major-project delivery, even though both resumes lack backend, database, and reporting platform modernization experience.
+
+* **Why me?**: You have strong frontend engineering and leadership skills that align with the job's React and UI modernization aspects, but your experience does not directly address the critical backend modernization or database refactoring requirements of the role.
+
+---
+
+## Strong Matches
+* **Production experience with modern front-end frameworks (React strongly preferred; Vue or Angular acceptable) and familiarity with API-first front-end/back-end integration patterns.**: Both resumes show strong, detailed experience leading React and modern JS/TS web apps, API-driven UIs, and integration patterns. Developer resume provides especially deep evidence (architecture, implementation, scaling, API integration, design systems) while Manager resume also demonstrates significant React and JS expertise and team leadership.
+
+
+
+* **2+ years in a people-management or technical-lead role with direct reports.**: Both resumes show explicit people-management and technical leadership. Manager resume: 'Managed two US engineering departments,' 'US Engineering Manager,' teaching/mentoring. Developer resume: 'Engineering Manager' with cross-team leadership. Evidence is clear in both, slight edge to Manager for breadth/depth.
+
+
+
+---
+
+## Weak Matches
+* **Track record of setting up or significantly improving CI/CD pipelines, automated testing, and monitoring/observability stacks.**: Developer resume references build pipeline upgrades (Next.js/Webpack/Node) but lacks explicit implementation/ownership of CI/CD pipelines or deep mention of monitoring/observability. Manager resume lists relevant tools (Jest, Cypress, Playwright, Sentry) but not end-to-end SDLC, CI/CD, or monitoring ownership.
+
+
+
+* **Hands-on experience with containerization (Docker, Kubernetes) and cloud platforms (AWS or Azure).**: Developer resume lists AWS and GCP in skills section without explicit Docker/Kubernetes experience or ownership of containerization/cloud deployments; evidence is generic and not domain-specific. Manager resume lists AWS and GCP as well but no further containerization details.
+
+
+
+* **Familiarity with Agile/Scrum at a practical level (sprint planning, backlog grooming, retrospectives, etc).**: Manager resume lists Agile in technical skills; Developer resume does not explicitly mention Agile but implies collaborative cross-team work. No strong practical detail in either resume.
+
+
+
+---
+
+## Missing Requirements
+* **Deep hands-on experience with Java and the Spring ecosystem; direct experience migrating from legacy Spring (XML-config, WAR deployments) to Spring Boot.**: No explicit mention of Java or the Spring ecosystem, migration from legacy Spring to Spring Boot, or related backend modernization work in either resume.
+
+
+
+* **Strong SQL and relational-database skills, with demonstrated experience refactoring stored-procedure-heavy architectures into application-layer logic.**: No explicit mention of SQL Server, stored procedure refactoring, or similar database modernization in either resume. Developer resume lists 'MySQL' but no relevant refactoring evidence.
+
+
+
+* **Experience upgrading reporting solutions/platforms (e.g., SSRS, Crystal Reports, Jasper, etc).**: No evidence of reporting platform upgrades or migrations in either resume.
+
+
+
+* **Experience in payroll, financial services, or regulated/high-accuracy domains.**: No evidence of payroll, financial, or similar regulated domain experience in either resume.
+
+
+
+---
+
+## Cover Letter
+
+  ```text
+
+  Hi Cast & Crew team,
+
+The part of the role that caught my attention is the heavy focus on modernization—taking a big, working system and nudging it toward something that’s easy to work on and own. I’ve spent a lot of time leading similar front-end rewrites and back-end refactors, especially where legacy tech started to slow teams down. I like that you’re not just looking for “lift-and-shift,” but want someone who will keep the team moving and make sure new ground rules stick.
+
+At WGAC, I ran a major Shopify migration, pulling out piles of old custom code in favor of unified, maintainable storefront systems. There was a lot of balancing between breaking as little as possible and getting the whole org comfortable with new patterns. At RxSaver and RetailMeNot, I rebuilt monolithic stacks into smaller, API-driven React apps and set up CI, proper frontend test coverage, and docs so other teams could pitch in without tribal knowledge trips. Modernizing production processes, laying out code review guardrails, and giving teams room to own decisions is pretty much my favorite part of the gig.
+
+I like building things that last—not just tech, but teams. Happy to walk through more detail, or talk about what’s still warty in your current stack if that’s useful. Let me know how I can help.
+
+  Sincerely,
+
+  Steve Swanson
+  (210) 262-2271
+  steve.e.swanson@gmail.com
+
+  ```
+  

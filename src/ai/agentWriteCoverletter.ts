@@ -2,13 +2,13 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { Agent, run } from "@openai/agents";
-import { AgentExtractResume } from "./agentExtractResume";
+import { AgentCompareJobToResumes } from "./agentCompareJobToResumes";
 
 export async function agentWriteCoverletter({
   comparison,
   jobDescription,
 }: {
-  comparison: AgentExtractResume;
+  comparison: AgentCompareJobToResumes;
   jobDescription: string;
 }): Promise<string> {
   const __filename = fileURLToPath(import.meta.url);

@@ -1,10 +1,10 @@
 import z from "zod";
 import { Match } from "./ai/agentExtractResume";
-import { AgentExtractResumeSchema } from "./ai/agentExtractResume";
+import { AgentCompareJobToResumesSchema } from "./ai/agentCompareJobToResumes";
 
 const OutputMarkdownSchema = z.object({
   companyName: z.string(),
-  comparison: AgentExtractResumeSchema,
+  comparison: AgentCompareJobToResumesSchema,
   coverLetter: z.string(),
   formattedDate: z.string(),
   jobTitle: z.string(),
@@ -33,7 +33,11 @@ export function outputMarkdown({
 
 ## Recommended: ${recommendedResume} (score: ${comparison.score})
 
-${comparison.summary}
+* **Company summary**: ${comparison.companySummary}
+
+* **Why this resume?**: ${comparison.reasonRecommendedResume}
+
+* **Why me?**: ${comparison.reasonWhyMe}
 
 ---
 
