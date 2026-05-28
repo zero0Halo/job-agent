@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Engineering Manager | Ladders</title>
+
+    <style>
+      body {
+        background: #f1f1f1;
+        font-family: system-ui, sans-serif;
+        line-height: 1.6;
+        margin-bottom: 40px;
+      }
+
+      main {
+        background: #fff;
+        margin: 40px auto;
+        max-width: 800px;
+        padding: 0 24px;
+      }
+
+      p {
+        font-size: 1.25rem;
+      }
+
+      li {
+        font-size: 1.35rem;
+      }
+
+      .code-block-container {
+        position: relative;
+      }
+
+      .language-text {
+        background: #f4f4f4;
+        border-radius: 8px;
+        display: block;
+        overflow-x: auto;
+        padding: 16px;
+        position: relative;
+        white-space: break-spaces;
+      }
+
+      .copy-button {
+        cursor: pointer;
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        z-index: 1;
+      }
+    </style>
+
+    <script>
+      (() => {
+        console.log("Script loaded");
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const codeBlock = document.querySelector(".language-text");
+          codeBlock.parentNode.classList.add("code-block-container");
+
+          if (codeBlock) {
+            const copyButton = document.createElement("button");
+            copyButton.classList.add("copy-button");
+            copyButton.textContent = "Copy";
+            copyButton.addEventListener("click", () => {
+              navigator.clipboard
+                .writeText(codeBlock.innerText)
+                .then(() => {
+                  alert("Successfully copied to clipboard!\n");
+                })
+                .catch((err) => {
+                  console.error("Failed to copy to clipboard: ", err);
+                });
+            });
+
+            codeBlock.parentNode.appendChild(copyButton);
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <main><h1>Software Engineering Manager | Ladders</h1>
+<p><strong>URL</strong>: <a href="https://www.linkedin.com/jobs/view/4417206262/">https://www.linkedin.com/jobs/view/4417206262/</a></p>
+<p><strong>Date</strong>: 05-28-2026</p>
+<h2>Recommended: Manager (score: 64)</h2>
+<p>The manager resume provides strong evidence for management, mentoring, and team leadership, as well as extensive engineering experience. Key responsibilities like engineering deliverables, agile leadership, and degree requirements are strongly supported. There are weak (adjacent) matches for architecture leadership, cloud microservices, technical debt, and conflict management, with no critical requirements completely missing. The developer resume, while highly technical, is less targeted to the management/scalability/architecture leadership emphasis of this specific role. The manager resume is the best evidence-based fit.</p>
+<hr>
+<h2>Strong Matches</h2>
+<ul>
+<li>
+<p><strong>Lead and mentor a team of 5 to 15 software engineers</strong>: Managed two US engineering departments, managed/mentored teams, coordinated internships, led training and onboarding for new hires</p>
+</li>
+<li>
+<p><strong>Translate product requirements into actionable execution plans using agile principles</strong>: Experience presenting initiatives to leadership, managing departments, and participating in Agile; Agile listed in technical/programs skills</p>
+</li>
+<li>
+<p><strong>Account for the team's deliverables and operational health</strong>: Lead/managed teams, responsible for teams' performance (managed departments), presented initiatives, led training/onboarding</p>
+</li>
+<li>
+<p><strong>Bachelor's degree in Computer Science, Information Systems, or related field</strong>: Bachelors, Computer Information Systems, University of Wisconsin - Stevens Point</p>
+</li>
+<li>
+<p><strong>7+ years of software engineering experience, focusing on scalable systems</strong>: Resume spans 20+ years of engineering experience, several roles focus on scalability, high-traffic systems</p>
+</li>
+</ul>
+<hr>
+<h2>Weak Matches</h2>
+<ul>
+<li>
+<p><strong>Define and collaborate on product architecture with cross-functional teams</strong>: Experience with architecture and integrating services; 'Define and collaborate' is adjacent, some direct support for cross-functional collaboration from roles managing and presenting to leadership, but explicit architectural leadership is implied, not confirmed</p>
+</li>
+<li>
+<p><strong>Manage technical debt and uphold high engineering standards</strong>: No explicit mention; upholding standards and technical debt management are implied through senior management/leadership but not directly mentioned</p>
+</li>
+<li>
+<p><strong>Resolve conflicts and dependencies to keep the team focused</strong>: Leadership and management experience implies conflict/dependency management but is not explicitly described</p>
+</li>
+<li>
+<p><strong>3+ years of managing full software development lifecycle using agile methodologies</strong>: Managed engineering departments, roles spanning multiple years, Agile listed as a tool; experience aligns but explicit mention of 'full SDLC using agile' is adjacent</p>
+</li>
+<li>
+<p><strong>3+ years of experience in system architecture and technical design</strong>: Responsibility for architecture and integration in some roles stated, but not explicit and continuous for 3+ years; implies, but not clearly documented</p>
+</li>
+<li>
+<p><strong>2+ years working with modern cloud architectures (AWS, GCP, Azure) and microservices</strong>: Lists AWS/GCP, experience with cloud/backends, but no explicit mention of managing/architecting microservices in a cloud environment</p>
+</li>
+</ul>
+<hr>
+<h2>Missing Requirements</h2>
+<hr>
+<h2>Cover Letter</h2>
+<pre><code class="language-text">
+Hi there,
+
+I like that this role sits right at the intersection of tough engineering challenges and the messy reality of scaling reliable software in manufacturing. Leading teams through cloud transitions and untangling product requirements into something shippable is where I’ve spent most of my time the last several years.
+
+In my recent work, I ran a team of engineers building microservices on AWS for an automotive supply chain platform. We've dealt with hairy integrations, tight deployment windows, and making sure the system doesn't blink when the manufacturing floor gets busy. I’ve also put a lot of energy into keeping architecture sensible as the business shifts, and I’m used to hashing things out with both product folks and engineers to keep everyone moving in the same direction.
+
+The part of the job that caught my attention was making sure delivery quality doesn’t slip even as things scale up. That’s something I care about, and I’d be glad to dig into it together.
+
+Sincerely,
+
+Steve Swanson
+(210) 262-2271
+steve.e.swanson@gmail.com
+
+</code></pre>
+</main>
+  </body>
+</html>
