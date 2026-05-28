@@ -18,6 +18,11 @@
         margin: 40px auto;
         max-width: 800px;
         padding: 0 24px;
+        position: relative;
+      }
+
+      h1 {
+        margin-right: 1rem;
       }
 
       p {
@@ -57,15 +62,53 @@
       (() => {
         console.log("Script loaded");
 
+        function createCopyButton(fn) {
+          const copyButton = document.createElement("button");
+          copyButton.classList.add("copy-button");
+          copyButton.textContent = "Copy";
+
+          if (fn) {
+            copyButton.addEventListener("click", fn);
+          }
+
+          return copyButton;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const mainElement = document.querySelector("main");
+          const h1Element = mainElement.querySelector("h1");
+
+          if (h1Element) {
+            const [jobTitle, companyName] = h1Element.textContent
+              .split("|")
+              .map((s) => s.trim());
+            const urlElement = h1Element.nextElementSibling;
+            const url = urlElement?.innerText.split(": ")?.at(1);
+            const dateElement = urlElement?.nextElementSibling;
+            const date = dateElement?.innerText.split(": ")?.at(1);
+            const copyButton = createCopyButton(() => {
+              navigator.clipboard
+                .writeText(`${companyName}\t${jobTitle}\t${url}\t${date}`)
+                .then(() => {
+                  alert("Successfully copied to clipboard!\n");
+                })
+                .catch((err) => {
+                  console.error("Failed to copy to clipboard: ", err);
+                });
+            });
+
+            mainElement.appendChild(copyButton);
+          } else {
+            console.error("Failed to find the main heading element.");
+          }
+        });
+
         document.addEventListener("DOMContentLoaded", () => {
           const codeBlock = document.querySelector(".language-text");
           codeBlock.parentNode.classList.add("code-block-container");
 
           if (codeBlock) {
-            const copyButton = document.createElement("button");
-            copyButton.classList.add("copy-button");
-            copyButton.textContent = "Copy";
-            copyButton.addEventListener("click", () => {
+            const copyButton = createCopyButton(() => {
               navigator.clipboard
                 .writeText(codeBlock.innerText)
                 .then(() => {
