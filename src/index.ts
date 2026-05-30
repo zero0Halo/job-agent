@@ -15,11 +15,14 @@ import { loadPdf } from "./loadPdf";
 import { nameToFilename } from "./nameToFilename";
 import { outputMarkdown } from "./outputMarkdown";
 import { outputHtml } from "./outputHtml";
+import { checkJobsCache } from "./checkJobsCache";
 
 // Loads environment variables from .env file
 dotenv.config();
 
 const rl = readline.createInterface({ input, output });
+
+const ALLOWED_RESPONSES = ["n", "Y", ""];
 
 const PayloadSchema = z.object({
   pageTitle: z.string(),
@@ -40,6 +43,25 @@ async function main() {
     console.error("Error parsing payload:", error);
     process.exitCode = 1;
     return;
+  }
+
+  const isJobCached = await checkJobsCache(payloadParsed.jobUrl);
+
+  if (isJobCached) {
+    const response = await rl.question(
+      "Job URL already exists in cache. Continue (Y/n)?\n",
+    );
+    const allowed = ALLOWED_RESPONSES.includes(response.trim());
+
+    if (!allowed) {
+      console.log("\nInvalid entry. Cancelling.\n");
+      process.exitCode = 1;
+      return;
+    } else if (response === "n") {
+      console.log("\nUser cancelled Operation.\n");
+      process.exitCode = 1;
+      return;
+    }
   }
 
   const { companyName, jobTitle } = await agentExtractJobData(
