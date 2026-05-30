@@ -99,7 +99,7 @@ async function main() {
     url: payloadParsed.jobUrl,
   });
   const mdFilename = nameToFilename({
-    parentDirectory: "output",
+    parentDirectory: "output/md",
     formattedDate,
     companyName,
     jobTitle,
