@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manager, Engineering | Smartsheet</title>
+
+    <style>
+      body {
+        background: #f1f1f1;
+        font-family: system-ui, sans-serif;
+        line-height: 1.6;
+        margin-bottom: 40px;
+      }
+
+      main {
+        background: #fff;
+        margin: 40px auto;
+        max-width: 800px;
+        padding: 0 24px;
+        position: relative;
+      }
+
+      h1 {
+        margin-right: 1rem;
+      }
+
+      p {
+        font-size: 1.25rem;
+      }
+
+      li {
+        font-size: 1.35rem;
+      }
+
+      .code-block-container {
+        position: relative;
+      }
+
+      .language-text {
+        background: #f4f4f4;
+        border-radius: 8px;
+        display: block;
+        overflow-x: auto;
+        padding: 16px;
+        position: relative;
+        white-space: break-spaces;
+      }
+
+      .copy-button {
+        cursor: pointer;
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        z-index: 1;
+      }
+    </style>
+
+    <script>
+      (() => {
+        console.log("Script loaded");
+
+        function createCopyButton(fn) {
+          const copyButton = document.createElement("button");
+          copyButton.classList.add("copy-button");
+          copyButton.textContent = "Copy";
+
+          if (fn) {
+            copyButton.addEventListener("click", fn);
+          }
+
+          return copyButton;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const mainElement = document.querySelector("main");
+          const h1Element = mainElement.querySelector("h1");
+
+          if (h1Element) {
+            const [jobTitle, companyName] = h1Element.textContent
+              .split("|")
+              .map((s) => s.trim());
+            const urlElement = h1Element.nextElementSibling;
+            const url = urlElement?.innerText.split(": ")?.at(1);
+            const dateElement = urlElement?.nextElementSibling;
+            const date = dateElement?.innerText.split(": ")?.at(1);
+            const copyButton = createCopyButton(() => {
+              navigator.clipboard
+                .writeText(`${companyName}\t${jobTitle}\t${url}\t${date}`)
+                .then(() => {
+                  alert("Successfully copied to clipboard!\n");
+                })
+                .catch((err) => {
+                  console.error("Failed to copy to clipboard: ", err);
+                });
+            });
+
+            mainElement.appendChild(copyButton);
+          } else {
+            console.error("Failed to find the main heading element.");
+          }
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const codeBlock = document.querySelector(".language-text");
+          codeBlock.parentNode.classList.add("code-block-container");
+
+          if (codeBlock) {
+            const copyButton = createCopyButton(() => {
+              navigator.clipboard
+                .writeText(codeBlock.innerText)
+                .then(() => {
+                  alert("Successfully copied to clipboard!\n");
+                })
+                .catch((err) => {
+                  console.error("Failed to copy to clipboard: ", err);
+                });
+            });
+
+            codeBlock.parentNode.appendChild(copyButton);
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <main><h1>Manager, Engineering | Smartsheet</h1>
+<p><strong>URL</strong>: <a href="https://www.linkedin.com/jobs/view/4394478932/">https://www.linkedin.com/jobs/view/4394478932/</a></p>
+<p><strong>Date</strong>: 06-03-2026</p>
+<h2>Recommended: Manager (score: 37)</h2>
+<ul>
+<li>
+<p><strong>Company summary</strong>: Smartsheet builds large-scale, high-availability SaaS platforms enabling work management, automation, and insights for millions of customers, focusing on service reliability, scalability, and operational excellence.</p>
+</li>
+<li>
+<p><strong>Why this resume?</strong>: The Manager resume is recommended because it shows strong, explicit evidence for critical management requirements, including team leadership, hiring/mentoring, cross-team alignment, executive communication, and driving AI adoption. Both resumes are weak or missing on deep distributed systems/five-nines infrastructure, but the Manager resume best matches the high-priority management, organizational, and operational leadership criteria in the job description.</p>
+</li>
+<li>
+<p><strong>Why me?</strong>: You fit the job because your experience shows explicit team and engineering management, leadership of large cross-functional initiatives, mentoring and hiring, process improvement, and helping drive technical adoption—all key for the Smartsheet Engineering Manager role, even though you lack direct proof of scale/depth for mission-critical service infrastructure managed to five-nines.</p>
+</li>
+</ul>
+<hr>
+<h2>Strong Matches</h2>
+<ul>
+<li>
+<p><strong>3+ years engineering management of high-availability infrastructure/platform services.</strong>: Manager resume: Explicit engineering management and leadership across platform/infrastructure teams. Developer resume: Lists management experience, but resume focus is developer, not explicit sustained management of infrastructure/platform. Strong for Manager, weak for Developer.</p>
+</li>
+<li>
+<p><strong>Demonstrated success building and scaling engineering teams (recruiting, onboarding, retaining senior/staff engineers).</strong>: Manager resume: Explicit experience hiring, mentoring, advancing engineers. Developer: Implied mentoring, less focus on building/scaling teams. Strong for Manager, weak for Developer.</p>
+</li>
+<li>
+<p><strong>Clear technical and non-technical executive communication, surfacing risks, direct feedback, supporting growth at all levels.</strong>: Manager resume: Explicit cross-functional/executive communication, managing stakeholders, surfacing issues, mentoring, team feedback. Developer resume: No explicit reference. Strong for Manager, missing for Developer.</p>
+</li>
+<li>
+<p><strong>Champion AI adoption in engineering lifecycles.</strong>: Manager resume references promoting AI usage/workflows/team processes. Developer resume lists AI tools under skills, less evidence of championing AI adoption. Strong for Manager, weak for Developer.</p>
+</li>
+<li>
+<p><strong>CS/Engineering degree or equivalent.</strong>: Both resumes: Bachelor's in Computer Information Systems.</p>
+</li>
+</ul>
+<hr>
+<h2>Weak Matches</h2>
+<ul>
+<li>
+<p><strong>8+ years of software development, strong CS fundamentals (algorithms, data structures, distributed systems, systems design).</strong>: Both resumes demonstrate extensive experience (15+ years), but neither explicitly details distributed systems or advanced systems design; management resume provides broader context but no explicit mention. Developer resume focuses on frontend and web architecture, not deep distributed systems. Weak for both.</p>
+</li>
+<li>
+<p><strong>Hands-on experience with low-latency, high-throughput service platforms (millions of requests/day).</strong>: No explicit evidence for either resume of ownership/built services at millions of requests/day or with explicit low-latency/high-throughput SLOs. Both mention high-traffic systems, but not quantified to requirement. Weak for both (adjacent only).</p>
+</li>
+<li>
+<p><strong>Experience managing complex dependencies across distributed architectures.</strong>: Manager resume references cross-functional/international coordination and cross-team leadership on technical projects. Developer resume shows cross-team collaboration. Weak for both, slightly stronger on Manager for breadth, but neither is explicit to distributed architectures at this scale.</p>
+</li>
+<li>
+<p><strong>Strong CS fundamentals: distributed systems, concurrency, caching, data consistency, performance optimization.</strong>: Performance optimization is present in both; explicit distributed systems, concurrency, caching, data consistency not addressed on either. Both are weak (performance only).</p>
+</li>
+<li>
+<p><strong>Experience building/scaling large-scale cloud-native backend services (AWS or equivalent).</strong>: Both resumes mention AWS/GCP experience; no explicit large-scale cloud-native backend ownership. Weak for both.</p>
+</li>
+<li>
+<p><strong>Proficiency with observability: metrics, distributed tracing, alerting, SLO/SLA management at scale.</strong>: Both mention tools like Sentry, Applitools, etc., but no explicit evidence of SLO/SLA management or distributed tracing at scale. Weak for both.</p>
+</li>
+<li>
+<p><strong>Experience productionizing services for multiple internal/external platform consumers.</strong>: Manager resume indicates SaaS, productization, and cross-org alignment; developer resume highlights SaaS, APIs, but not explicitly platform consumers. Weak for both.</p>
+</li>
+<li>
+<p><strong>Experience with Agile/Scrum and iterative delivery on infrastructure projects.</strong>: Both resumes mention Agile experience; Manager resume includes management in Agile environments. Weak for both.</p>
+</li>
+</ul>
+<hr>
+<h2>Missing Requirements</h2>
+<ul>
+<li>
+<p><strong>Proven track record owning/operating tier 0/mission-critical systems with 99.999% availability.</strong>: Neither resume explicitly states 99.999% or tier 0 mission-critical ownership; both imply high-availability work but lack explicit five-nines responsibility. Missing for both.</p>
+</li>
+<li>
+<p><strong>Deep knowledge of scalability, fault tolerance, operational patterns for 99.999% availability.</strong>: No explicit discussion of such deep operational experience in either resume. Missing for both.</p>
+</li>
+</ul>
+<hr>
+<h2>Cover Letter</h2>
+<pre><code class="language-text">
+Hi Smartsheet team,
+
+What stood out to me about this role is the focus on building and running truly critical infrastructure—the kind where uptime and reliability aren’t just ideals, they're table stakes. I've spent the last few years leading distributed engineering groups at WGAC, working across continents and time zones, and setting the technical direction for systems that can’t break. Managing availability targets, pushing for smart automation (AI included), and building healthy cultures around incident management has been a lot of my day-to-day. I like that your team sees both the people and the platform as equal parts of the challenge.
+
+The part of the job that caught my attention was mentoring engineers through complex infrastructure decisions, especially with high throughput and low latency in play. At WGAC, I redirected our engineering org toward cost-effective, always-on platforms that served millions of requests. I've been in roles where on-call meant real responsibility—from running incident reviews, to coaching senior ICs on distributed systems patterns, to communicating risks clearly across product and infra teams. I’ve also grown teams up from within, promoted leads, and been hands-on about hiring tech talent that sticks around. For me, keeping things simple and iterative—no matter the scale—has always worked best.
+
+Happy to dig into technical details or talk through any aspect of how I’d lead here. Appreciate the chance to connect and learn more about the platform team.
+
+Sincerely,
+
+Steve Swanson
+(210) 262-2271
+steve.e.swanson@gmail.com
+
+</code></pre>
+</main>
+  </body>
+</html>

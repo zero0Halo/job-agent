@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Engineering Manager | CSC Generation</title>
+
+    <style>
+      body {
+        background: #f1f1f1;
+        font-family: system-ui, sans-serif;
+        line-height: 1.6;
+        margin-bottom: 40px;
+      }
+
+      main {
+        background: #fff;
+        margin: 40px auto;
+        max-width: 800px;
+        padding: 0 24px;
+        position: relative;
+      }
+
+      h1 {
+        margin-right: 1rem;
+      }
+
+      p {
+        font-size: 1.25rem;
+      }
+
+      li {
+        font-size: 1.35rem;
+      }
+
+      .code-block-container {
+        position: relative;
+      }
+
+      .language-text {
+        background: #f4f4f4;
+        border-radius: 8px;
+        display: block;
+        overflow-x: auto;
+        padding: 16px;
+        position: relative;
+        white-space: break-spaces;
+      }
+
+      .copy-button {
+        cursor: pointer;
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        z-index: 1;
+      }
+    </style>
+
+    <script>
+      (() => {
+        console.log("Script loaded");
+
+        function createCopyButton(fn) {
+          const copyButton = document.createElement("button");
+          copyButton.classList.add("copy-button");
+          copyButton.textContent = "Copy";
+
+          if (fn) {
+            copyButton.addEventListener("click", fn);
+          }
+
+          return copyButton;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const mainElement = document.querySelector("main");
+          const h1Element = mainElement.querySelector("h1");
+
+          if (h1Element) {
+            const [jobTitle, companyName] = h1Element.textContent
+              .split("|")
+              .map((s) => s.trim());
+            const urlElement = h1Element.nextElementSibling;
+            const url = urlElement?.innerText.split(": ")?.at(1);
+            const dateElement = urlElement?.nextElementSibling;
+            const date = dateElement?.innerText.split(": ")?.at(1);
+            const copyButton = createCopyButton(() => {
+              navigator.clipboard
+                .writeText(`${companyName}\t${jobTitle}\t${url}\t${date}`)
+                .then(() => {
+                  alert("Successfully copied to clipboard!\n");
+                })
+                .catch((err) => {
+                  console.error("Failed to copy to clipboard: ", err);
+                });
+            });
+
+            mainElement.appendChild(copyButton);
+          } else {
+            console.error("Failed to find the main heading element.");
+          }
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const codeBlock = document.querySelector(".language-text");
+          codeBlock.parentNode.classList.add("code-block-container");
+
+          if (codeBlock) {
+            const copyButton = createCopyButton(() => {
+              navigator.clipboard
+                .writeText(codeBlock.innerText)
+                .then(() => {
+                  alert("Successfully copied to clipboard!\n");
+                })
+                .catch((err) => {
+                  console.error("Failed to copy to clipboard: ", err);
+                });
+            });
+
+            codeBlock.parentNode.appendChild(copyButton);
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <main><h1>Software Engineering Manager | CSC Generation</h1>
+<p><strong>URL</strong>: <a href="https://www.linkedin.com/jobs/view/4416593978/">https://www.linkedin.com/jobs/view/4416593978/</a></p>
+<p><strong>Date</strong>: 06-03-2026</p>
+<h2>Recommended: Manager (score: 78)</h2>
+<ul>
+<li>
+<p><strong>Company summary</strong>: CSC Generation is an AI-driven holding company focused on modernizing and scaling omnichannel retail brands through proprietary software platforms, automation, and shared services.</p>
+</li>
+<li>
+<p><strong>Why this resume?</strong>: The manager resume was chosen because it provides strong, explicit evidence for all critical management, mentorship, hands-on technical leadership, and ownership requirements, with only weak or unclear matches on less central, preferred qualifications. The developer resume, while exceptional on technical depth, has less explicit managerial, mentoring, and domain ownership evidence.</p>
+</li>
+<li>
+<p><strong>Why me?</strong>: You possess direct management, technical leadership, mentorship, and advanced frontend skills that align strongly with CSC Generation's requirements for an engineering manager capable of team building, technical ownership, AI adoption, and platform modernization.</p>
+</li>
+</ul>
+<hr>
+<h2>Strong Matches</h2>
+<ul>
+<li>
+<p><strong>5+ years software engineering, 2+ years technical lead or engineering management with direct reports</strong>: Manager: Explicit engineering management of US teams (internal hires and contractors) at WGAC. Developer: Evidence of engineering management role, but less detail about direct reports.</p>
+</li>
+<li>
+<p><strong>Proficiency with modern frameworks and languages: TypeScript, JavaScript, React, Node.js, Python, or Django</strong>: Manager: Explicit skills in JavaScript, React, Node, TypeScript; Python mentioned among experiences. Developer: Extensive use and leadership in React, TypeScript, Node.js, JavaScript; Python exposure. Both are strong.</p>
+</li>
+<li>
+<p><strong>Hands-on technical leadership: writing, reviewing, debugging code, managing a team, driving technical strategy</strong>: Manager: Led initiatives, maintained hands-on approach, mentorship, code review indicated. Developer: Led architecture, code delivery, iterative development, cost savings; only partial evidence for team management (leaning towards technical lead, not explicit management).</p>
+</li>
+<li>
+<p><strong>Owning a domain/service end-to-end: architecture, roadmap, delivery</strong>: Manager: Managed US engineering departments, led projects, technical owner role clear. Developer: Led frontend architecture, but full end-to-end ownership for broad platform not as explicit.</p>
+</li>
+<li>
+<p><strong>Mentoring engineers and improving productivity/code quality</strong>: Manager: Mentorship, teaching, intern program, technical book, direct and ongoing mentoring. Developer: Led teams, but less explicit ongoing mentoring of engineers.</p>
+</li>
+<li>
+<p><strong>Familiarity with AI/ML tooling or integrating LLM features</strong>: Manager: AI tooling listed explicitly, structured pipelines, workflow automation, Claude Code. Developer: OpenAI SDK, Claude Code, AI automation listed in skills—parity here.</p>
+</li>
+</ul>
+<hr>
+<h2>Weak Matches</h2>
+<ul>
+<li>
+<p><strong>Cloud platform experience (AWS, GCP)</strong>: Manager: Experience with AWS, GCP noted, but only as 'experience with'. Developer: AWS, GCP listed in skills section; neither resume provides strong project-based detail.</p>
+</li>
+<li>
+<p><strong>Platform/shared services/multi-brand or multi-tenant experience, especially in retail or e-commerce</strong>: Manager: No explicit detail on platforms or multi-brand support in retail/ecommerce. Developer: Shopify platform, multi-tenant store experience, but actual multi-brand/shared service domain not explicit.</p>
+</li>
+<li>
+<p><strong>Modernizing legacy systems, leading platform migration at scale</strong>: Manager: Not explicitly described. Developer: Led migration (Shopify), replaced systems, some legacy modernization—but no platform-wide migration leadership described.</p>
+</li>
+<li>
+<p><strong>Comfort with fast-moving, Lean, ambiguous environments</strong>: Manager: U.S. remote management, lean teams, multiple initiatives, implied adaptability. Developer: Fast iteration, collaboration, high-traffic interfaces, cost-saving projects. Both provide weak evidence via context, not explicit statements.</p>
+</li>
+</ul>
+<hr>
+<h2>Missing Requirements</h2>
+<hr>
+<h2>Cover Letter</h2>
+<pre><code class="language-text">
+Hi CSC Generation team,
+
+The part of the role that caught my attention is how hands-on it stays, even at the engineering manager level. I like that this is as much about building as it is about leading, especially on a platform that ties together a lot of moving pieces for brands with real users and real complexity. I’ve spent a good chunk of my career in spots like this: growing teams, refactoring systems that feel patched-together, and connecting day-to-day technical decisions with bigger-picture delivery.
+
+Most recently, I managed engineering for WGAC during a period when the tech stack was overdue for an overhaul and the business needed us to keep shipping anyway. My time there (and before that, in senior UI and platform roles at RxSaver/GoodRx and RetailMeNot) kept me tight with modern frameworks — React, Node, TypeScript, and the rest — but also required me to mentor folks, triage problems, and, honestly, push back just enough to keep technical debt in check. Even on lean teams, I like to stay close to the code and keep my hands on reviews and roadmap planning. And when we brought AI tooling into the picture — mostly for workflow and automation — I got comfortable thinking through how those pieces fit into production, not just as toys.
+
+Happy to chat more and dig into how I’d approach building a team and platform that won’t slow you down as CSC Generation grows. Appreciate how direct and practical this role sounds.
+
+Sincerely,
+
+Steve Swanson
+(210) 262-2271
+steve.e.swanson@gmail.com
+
+</code></pre>
+</main>
+  </body>
+</html>

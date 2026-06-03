@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manager, Engineering (Nova) | Iterable</title>
+
+    <style>
+      body {
+        background: #f1f1f1;
+        font-family: system-ui, sans-serif;
+        line-height: 1.6;
+        margin-bottom: 40px;
+      }
+
+      main {
+        background: #fff;
+        margin: 40px auto;
+        max-width: 800px;
+        padding: 0 24px;
+        position: relative;
+      }
+
+      h1 {
+        margin-right: 1rem;
+      }
+
+      p {
+        font-size: 1.25rem;
+      }
+
+      li {
+        font-size: 1.35rem;
+      }
+
+      .code-block-container {
+        position: relative;
+      }
+
+      .language-text {
+        background: #f4f4f4;
+        border-radius: 8px;
+        display: block;
+        overflow-x: auto;
+        padding: 16px;
+        position: relative;
+        white-space: break-spaces;
+      }
+
+      .copy-button {
+        cursor: pointer;
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        z-index: 1;
+      }
+    </style>
+
+    <script>
+      (() => {
+        console.log("Script loaded");
+
+        function createCopyButton(fn) {
+          const copyButton = document.createElement("button");
+          copyButton.classList.add("copy-button");
+          copyButton.textContent = "Copy";
+
+          if (fn) {
+            copyButton.addEventListener("click", fn);
+          }
+
+          return copyButton;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const mainElement = document.querySelector("main");
+          const h1Element = mainElement.querySelector("h1");
+
+          if (h1Element) {
+            const [jobTitle, companyName] = h1Element.textContent
+              .split("|")
+              .map((s) => s.trim());
+            const urlElement = h1Element.nextElementSibling;
+            const url = urlElement?.innerText.split(": ")?.at(1);
+            const dateElement = urlElement?.nextElementSibling;
+            const date = dateElement?.innerText.split(": ")?.at(1);
+            const copyButton = createCopyButton(() => {
+              navigator.clipboard
+                .writeText(`${companyName}\t${jobTitle}\t${url}\t${date}`)
+                .then(() => {
+                  alert("Successfully copied to clipboard!\n");
+                })
+                .catch((err) => {
+                  console.error("Failed to copy to clipboard: ", err);
+                });
+            });
+
+            mainElement.appendChild(copyButton);
+          } else {
+            console.error("Failed to find the main heading element.");
+          }
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const codeBlock = document.querySelector(".language-text");
+          codeBlock.parentNode.classList.add("code-block-container");
+
+          if (codeBlock) {
+            const copyButton = createCopyButton(() => {
+              navigator.clipboard
+                .writeText(codeBlock.innerText)
+                .then(() => {
+                  alert("Successfully copied to clipboard!\n");
+                })
+                .catch((err) => {
+                  console.error("Failed to copy to clipboard: ", err);
+                });
+            });
+
+            codeBlock.parentNode.appendChild(copyButton);
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <main><h1>Manager, Engineering (Nova) | Iterable</h1>
+<p><strong>URL</strong>: <a href="https://www.linkedin.com/jobs/view/4331995212/">https://www.linkedin.com/jobs/view/4331995212/</a></p>
+<p><strong>Date</strong>: 06-03-2026</p>
+<h2>Recommended: Developer (score: 60)</h2>
+<ul>
+<li>
+<p><strong>Company summary</strong>: Iterable provides an AI-powered customer engagement SaaS platform enabling brands to deliver dynamic, personalized, and scalable experiences.</p>
+</li>
+<li>
+<p><strong>Why this resume?</strong>: The developer resume provides the strongest and most explicit matches for the critical requirements (frontend/back-end stack, web development, leadership, testing, scalability, cloud, AI/automation), and demonstrates repeated hands-on expertise that aligns directly to the technical and managerial aspects of the role, ultimately earning more strong/explicit matches.</p>
+</li>
+<li>
+<p><strong>Why me?</strong>: You fit well because your experience in leading technical teams, modern web stack expertise, AI tool integration, and cost-effective process improvements align closely with Iterable’s requirements for impactful engineering management in AI-powered SaaS products.</p>
+</li>
+</ul>
+<hr>
+<h2>Strong Matches</h2>
+<ul>
+<li>
+<p><strong>At least 5 years of hands-on software development experience</strong>: Both resumes show over 15 years of development experience; explicit and repeated in roles and skills.</p>
+</li>
+<li>
+<p><strong>At least 3 years managing/growing software engineering teams</strong>: Manager resume: Explicit U.S. Engineering Manager role, led teams, coordinated internationally; mentored and trained; Developer resume: lists 'U.S. Engineering Manager' with leadership, but with less explicit emphasis on team management/growth compared to Manager resume.</p>
+</li>
+<li>
+<p><strong>Background in application/platform engineering, ideally SaaS</strong>: Both resumes: Extensive app/platform engineering, repeated SaaS experience at multiple companies (e.g. RxSaver, NextWorks, Spredfast), roles and descriptions support this.</p>
+</li>
+<li>
+<p><strong>Modern backend and frontend stack experience</strong>: Both resumes: Extensive experience with modern frontend (React, Next, etc.) and Node-based backend stacks listed explicitly.</p>
+</li>
+<li>
+<p><strong>Excellent communication; align technical work with business/product goals</strong>: Manager resume: Led presentations to leadership, coordinated across org, mentored; somewhat present in Developer resume but less directly.</p>
+</li>
+<li>
+<p><strong>Mentoring/coaching engineers, supporting career growth, team dynamics</strong>: Manager resume: Mentorship, intern training, new hire onboarding, team leadership; Developer resume: leadership/architecture but mentoring evidence is less prominent.</p>
+</li>
+<li>
+<p><strong>Bonus: Scaling teams/systems in remote-first environment</strong>: Manager resume: Managed US engineering teams remotely and coordinated internationally; Developer resume: Staff Frontend Engineer in similar context but less explicitly about scaling teams.</p>
+</li>
+</ul>
+<hr>
+<h2>Weak Matches</h2>
+<ul>
+<li>
+<p><strong>Experience leading teams integrating AI/ML into production systems</strong>: Manager resume: Normalized AI use at WGAC and references OpenAI SDK, AI workflow automation, but specifics of leadership in AI integration are limited; Developer resume: lists similar AI skills but does not detail leading teams on AI/ML product integration.</p>
+</li>
+<li>
+<p><strong>Operate at product/platform/data science intersection</strong>: Manager resume: Led cross-functional teams, directly mentions coordination with leadership and different departments; Developer resume: Implied by tech lead roles, less explicitly linked to product/data science collaboration.</p>
+</li>
+<li>
+<p><strong>Technical judgment across system design, APIs, distributed systems, and developer workflows</strong>: Both resumes list system/API design and workflow, but distributed systems evidence is not explicit; strongest for APIs and developer workflows.</p>
+</li>
+<li>
+<p><strong>Navigate ambiguity, drive execution across initiatives</strong>: Manager resume: Explicit in managing department transitions and delivering under evolving requirements; Developer resume: Implied by lead roles, not as directly stated.</p>
+</li>
+<li>
+<p><strong>Hiring/onboarding contribution as team grows</strong>: Manager resume: Mentions new hire curriculum creation; Developer resume: not explicitly addressed.</p>
+</li>
+<li>
+<p><strong>Bonus: Built agentic/LLM product experiences or agent frameworks (like Mastra)</strong>: Both resumes: List OpenAI SDK, AI workflow tools; neither explicitly state work on agentic/LLM features or with frameworks such as Mastra.</p>
+</li>
+<li>
+<p><strong>Bonus: Background in marketing tech/customer engagement platforms</strong>: Developer resume: Companies like RetailMeNot and Spredfast are in marketing/customer engagement but not called out in context; Manager resume: Slightly more context via company verticals but still weak.</p>
+</li>
+</ul>
+<hr>
+<h2>Missing Requirements</h2>
+<ul>
+<li><strong>Bonus: Prior work on decisioning/rules engines or real-time personalization</strong>: Neither resume gives explicit evidence of experience with decisioning/rules engines or real-time personalization systems.</li>
+</ul>
+<hr>
+<h2>Cover Letter</h2>
+<pre><code class="language-text">
+Hi Iterable team,
+
+The part of the role that caught my attention is leading the crew building agentic and AI-native experiences, especially with so much energy around integrating real, everyday AI into SaaS products right now. I’ve spent the last several years at the intersection of frontend architecture and engineering leadership—most recently at WGAC, steering a globally distributed team as we rebuilt our Shopify stack, moved legacy systems over, and saved a surprising amount of cash in the process. Before that, plenty of hands-on work: Next.js and React for RxSaver, aggregation systems for RetailMeNot, AI workflow automations, and collaborative work with design, product, and data—all in environments that move quickly but expect reliability.
+
+On the AI side, I’ve led projects shipping AI workflow automation with OpenAI SDKs, and I’m comfortable guiding engineers through the uncertainties and technical puzzles that come with these integrations. My day-to-day has included getting iteratively shippable features in users’ hands, mentoring folks with a solid growth mindset, and balancing necessary refactors with business deadlines. I also like getting into weeds of observability, testing, and making sure what we build is tough enough for production.
+
+What stood out to me about Iterable is the mix of technical ambition and openness to experimentation, with a culture that respects transparency and ownership. If you’re looking for someone who has been around the block (and enjoys bringing people along), I’d be glad to chat about where the Nova initiative and team could go next.
+
+Sincerely,
+
+Steve Swanson
+(210) 262-2271
+steve.e.swanson@gmail.com
+
+</code></pre>
+</main>
+  </body>
+</html>
